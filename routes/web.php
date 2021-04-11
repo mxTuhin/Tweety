@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('landingPage');
 
 Auth::routes();
 
@@ -26,5 +26,14 @@ Route::middleware('auth')->group(function (){
     Route::get('/profile/{user:name}/edit', 'ProfileController@edit')->name('editProfile');
 });
 
+Route::get('/timeline', 'HomeController@timeline')->name('timeline_user');
+
 Route::get('/profile/{user:name}', 'ProfileController@show')->name('profile');
+
+Route::post('/signup', 'ProfileController@store')->name('store_user');
+Route::post('/user_login', 'ProfileController@login')->name('login_user');
+
+
+
+
 

@@ -3,7 +3,7 @@
 @section('content')
     <header class="mb-4 relative">
         <img
-            src="/images/banner.jpg"
+            src="../images/banner.jpg"
             alt="Cover Photo"
             class="mb-2"
             >
@@ -26,7 +26,7 @@
 
             </div>
         </div>
-        <img src="{{$user->avatar}}"
+        <img src="../images/mxTuHin.jpg"
              alt="Profile Image"
              class="rounded-full mr-2 absolute"
              style="width:150px; left: calc(50% - 75px); top: 140px"

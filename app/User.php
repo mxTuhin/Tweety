@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'username', 'profile_img', 'gender', 'country'
     ];
 
     /**
@@ -46,7 +46,7 @@ class User extends Authenticatable
         return Tweet::whereIn('user_id', $ids)->latest()->get();
 }
     public function getAvatarAttribute(){
-        return "https://i.pravatar.cc/40?u=$this->email";
+        return "https://i.pravatar.cc/40?";
     }
     public function follow(User $user){
         return $this->follows()->save($user);

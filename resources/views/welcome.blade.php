@@ -1,91 +1,52 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
+@extends('layouts.loginLayout')
+@section('title', "Login")
+@section('content')
+    <div class="col-lg-6 order-1 order-lg-2 d-flex align-items-center justify-content-center">
+        <div class="signup-form-wrapper">
+            <h1 class="create-acc text-center">Create An Account</h1>
+            <div class="signup-inner text-center">
+                <h3 class="title">Welcome to Tweety</h3>
+                <form class="signup-inner--form" action="{{route('store_user')}}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="row">
+                        <div class="col-12">
+                            <input type="email" name="email" class="single-field" placeholder="Email">
+                        </div>
+                        <div class="col-12">
+                            <input type="password" name="password" class="single-field" placeholder="Password">
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" name="name" class="single-field" placeholder=" Name">
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" name="username" class="single-field" placeholder=" Username">
+                        </div>
 
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Tweety
-                </div>
+                        <div class="col-md-6">
+                            <select class="nice-select" name="gender">
+                                <option value="trending" disabled selected>Gender</option>
+                                <option value="sales">Male</option>
+                                <option value="sales">Female</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <select class="nice-select" name="country">
+                                <option value="NotSelected" disabled selected>Select Your Country</option>
+                                <option value="Bangladesh">Bangladesh</option>
+                            </select>
+                        </div>
+                        <div  class="col-12 col-sm-12">
+                            <input type="file" class="single-field" name="image">
+                        </div>
 
-                <div class="links">
-                    @if (Route::has('login'))
-                            @auth
-                                <a href="{{ route('home') }}">Home</a>
-                            @else
-                                <a href="{{ route('login') }}">Login</a>
-
-                                @if (Route::has('register'))
-                                    <a href="{{ route('register') }}">Register</a>
-                                @endif
-                            @endauth
-                    @endif
-                </div>
+                        <div  class="col-12 col-sm-12">
+                            <input type="submit" class="submit-btn" value="Create Account">
+                        </div>
+                    </div>
+                    <h6 class="terms-condition">I have read & accepted the <a href="#">terms of use</a></h6>
+                </form>
             </div>
         </div>
-    </body>
-</html>
+    </div>
+@endsection
