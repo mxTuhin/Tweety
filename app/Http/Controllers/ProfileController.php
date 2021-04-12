@@ -56,7 +56,7 @@ class ProfileController extends Controller
             $fieldType = filter_var(\request()->username, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
 
             if(Auth::attempt(array($fieldType => $input['username'], 'password'=>$input['password']))){
-                return redirect()->to(route('timeline'));
+                return redirect()->to(route('timeline_user'));
             }
             else{
                 return redirect()->to(route('landingPage'));
