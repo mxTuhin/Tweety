@@ -5,6 +5,7 @@
 {{--</div>--}}
 
 @extends('layouts.app')
+@section('title', "Timeline")
 
 @section('content')
     <div class="main-wrapper pt-80">
@@ -25,7 +26,7 @@
                                 </figure>
                                 <div class="profile-desc text-center">
                                     <h6 class="author"><a href="profile.html">{{auth()->user()->name}}</a></h6>
-                                    <p>Any one can join with but Social network us if you want Any one can join with us if you want</p>
+                                    <p>{{auth()->user()->bio}}</p>
                                 </div>
                             </div>
                         </div>
@@ -33,89 +34,32 @@
 
                         <!-- widget single item start -->
                         <div class="card widget-item">
-                            <h4 class="widget-title">page you may like</h4>
+                            <h4 class="widget-title">People You May Know</h4>
                             <div class="widget-body">
                                 <ul class="like-page-list-wrapper">
-                                    <li class="unorder-list">
-                                        <!-- profile picture end -->
-                                        <div class="profile-thumb">
-                                            <a href="#">
-                                                <figure class="profile-thumb-small">
-                                                    <img src="user/images/profile/profile-small-33.jpg" alt="profile picture">
-                                                </figure>
-                                            </a>
-                                        </div>
-                                        <!-- profile picture end -->
+                                    @if($user_list->count() >=1)
+                                        @foreach($user_list as $user)
+                                        <li class="unorder-list">
+                                            <!-- profile picture end -->
+                                            <div class="profile-thumb">
+                                                <a href="#">
+                                                    <figure class="profile-thumb-small">
+                                                        <img src="{{asset("user/images/profile")}}/{{$user->profile_img}}" alt="profile picture">
+                                                    </figure>
+                                                </a>
+                                            </div>
+                                            <!-- profile picture end -->
 
-                                        <div class="unorder-list-info">
-                                            <h3 class="list-title"><a href="#">Travel The World</a></h3>
-                                            <p class="list-subtitle"><a href="#">adventure</a></p>
-                                        </div>
-                                        <button class="like-button active">
-                                            <img class="heart" src="user/images/icons/heart.png" alt="">
-                                            <img class="heart-color" src="user/images/icons/heart-color.png" alt="">
-                                        </button>
-                                    </li>
-                                    <li class="unorder-list">
-                                        <!-- profile picture end -->
-                                        <div class="profile-thumb">
-                                            <a href="#">
-                                                <figure class="profile-thumb-small">
-                                                    <img src="user/images/profile/profile-small-30.jpg" alt="profile picture">
-                                                </figure>
-                                            </a>
-                                        </div>
-                                        <!-- profile picture end -->
-
-                                        <div class="unorder-list-info">
-                                            <h3 class="list-title"><a href="#">Foodcort Nirala</a></h3>
-                                            <p class="list-subtitle"><a href="#">food</a></p>
-                                        </div>
-                                        <button class="like-button">
-                                            <img class="heart" src="user/images/icons/heart.png" alt="">
-                                            <img class="heart-color" src="user/images/icons/heart-color.png" alt="">
-                                        </button>
-                                    </li>
-                                    <li class="unorder-list">
-                                        <!-- profile picture end -->
-                                        <div class="profile-thumb">
-                                            <a href="#">
-                                                <figure class="profile-thumb-small">
-                                                    <img src="user/images/profile/profile-small-5.jpg" alt="profile picture">
-                                                </figure>
-                                            </a>
-                                        </div>
-                                        <!-- profile picture end -->
-
-                                        <div class="unorder-list-info">
-                                            <h3 class="list-title"><a href="#">Rolin Theitar</a></h3>
-                                            <p class="list-subtitle"><a href="#">drama</a></p>
-                                        </div>
-                                        <button class="like-button">
-                                            <img class="heart" src="user/images/icons/heart.png" alt="">
-                                            <img class="heart-color" src="user/images/icons/heart-color.png" alt="">
-                                        </button>
-                                    </li>
-                                    <li class="unorder-list">
-                                        <!-- profile picture end -->
-                                        <div class="profile-thumb">
-                                            <a href="#">
-                                                <figure class="profile-thumb-small">
-                                                    <img src="user/images/profile/profile-small-29.jpg" alt="profile picture">
-                                                </figure>
-                                            </a>
-                                        </div>
-                                        <!-- profile picture end -->
-
-                                        <div class="unorder-list-info">
-                                            <h3 class="list-title"><a href="#">Active Mind</a></h3>
-                                            <p class="list-subtitle"><a href="#">fitness</a></p>
-                                        </div>
-                                        <button class="like-button">
-                                            <img class="heart" src="user/images/icons/heart.png" alt="">
-                                            <img class="heart-color" src="user/images/icons/heart-color.png" alt="">
-                                        </button>
-                                    </li>
+                                            <div class="unorder-list-info">
+                                                <h3 class="list-title"><a href="#">{{$user->name}}</a></h3>
+                                                <p class="list-subtitle"><a href="#">{{$user->bio}}</a></p>
+                                            </div>
+                                            <button style="margin-left:30px" class=" btn-sm">
+                                                <i class="fas fa-user-plus"></i>
+                                            </button>
+                                        </li>
+                                        @endforeach
+                                    @endif
                                 </ul>
                             </div>
                         </div>
@@ -221,7 +165,7 @@
                             <div class="profile-thumb">
                                 <a href="#">
                                     <figure class="profile-thumb-middle">
-                                        <img src="user/images/profile/profile-small-37.jpg" alt="profile picture">
+                                        <img src="{{asset("user/images/profile")}}/{{auth()->user()->profile_img}}" alt="profile picture">
                                     </figure>
                                 </a>
                             </div>

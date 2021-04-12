@@ -77,7 +77,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>@yield('title')</title>
+    <title>{{env('APP_NAME')}} | @yield('title')</title>
     <meta name="robots" content="noindex, follow" />
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -106,6 +106,8 @@
     <link rel="stylesheet" href="{{asset('user/css/plugins/lightgallery.min.css')}}">
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="{{asset('user/css/style.css')}}">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
 </head>
 
