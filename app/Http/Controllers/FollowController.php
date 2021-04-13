@@ -8,7 +8,15 @@ use Illuminate\Http\Request;
 class FollowController extends Controller
 {
     //
-    public function store(User $user){
+    public function store(Request $request){
+        $user=User::find($request->id);
+        if(\request()->ajax()){
+            auth()->user()->follow($user);
+        }
+
+    }
+
+    public function delete_follow(User $user){
         if(auth()->user()->following($user)){
             // Folllow the given user
             auth()->user()->unfollow($user);

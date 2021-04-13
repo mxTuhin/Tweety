@@ -17,12 +17,12 @@ class TweetController extends Controller
 
     public function store(){
         request()->validate([
-            'body'=>'required|max:255'
+            'body'=>'required'
         ]);
         Tweet::create([
             'user_id'=>auth()->id(),
             'body'=>\request('body')
         ]);
-        return redirect()->route('home');
+        return redirect()->route('timeline_user');
     }
 }

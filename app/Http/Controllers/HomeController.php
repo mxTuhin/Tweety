@@ -12,10 +12,18 @@ class HomeController extends Controller
 
     public function timeline(){
         if(Auth::check()){
-            $user_list=User::all()->except(\auth()->user()->id);
-            echo $user_list;
+            $ids=\auth()->user()->follows()->pluck('id');
+            $ids->push(\auth()->user()->id);
+
+            $id_array=array();
+            foreach ($ids as $id){
+                array_push($id_array, $id);
+            }
+
+            $user_list=User::all()->except($id_array);
             return view('_timeline', [
                 'user_list'=>$user_list,
+                'tweets'=>auth()->user()->timeline()
             ]);
         }
         else{
