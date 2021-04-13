@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class CreateUsersTable extends Migration
@@ -24,6 +25,9 @@ class CreateUsersTable extends Migration
             $table->string("profile_img");
             $table->string('bio')->nullable();
             $table->string('cover_photo')->nullable();
+            $table->string('workplace')->nullable();
+            $table->string('home')->nullable();
+            $table->string('hobby')->nullable();
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });

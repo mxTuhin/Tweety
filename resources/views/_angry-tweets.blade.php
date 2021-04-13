@@ -35,7 +35,7 @@
         <!-- profile picture end -->
 
         <div class="posted-author">
-            <h6 class="author"><a href="profile.html">{{$tweet->user->name}}</a></h6>
+            <h6 class="author"><a href="{{route('profile',$tweet->user)}}"">{{$tweet->user->name}}</a></h6>
 
         </div>
 
@@ -60,29 +60,26 @@
         <div class="post-thumb-gallery">
             <figure class="post-thumb img-popup">
                 <a href="user/images/post/post-large-1.jpg">
-                    <img src="user/images/post/post-1.jpg" alt="post image">
+                    @if($tweet->image!="")
+                        <img src="{{asset("user/images/tweets")}}/{{$tweet->image}}" alt="post image">
+                    @endif
                 </a>
             </figure>
         </div>
         <div class="post-meta">
-            <button class="post-meta-like">
+            <button onclick="add_like('{{$tweet->id}}')" class="post-meta-like">
                 <i class="bi bi-heart-beat"></i>
-                <span>You and 201 people like this</span>
-                <strong>201</strong>
+                <span id="like_count{{$tweet->id}}">{{$tweet->like_count}}</span>
+
             </button>
             <ul class="comment-share-meta">
                 <li>
                     <button class="post-comment">
                         <i class="bi bi-chat-bubble"></i>
-                        <span>41</span>
+                        <span>0</span>
                     </button>
                 </li>
-                <li>
-                    <button class="post-share">
-                        <i class="bi bi-share"></i>
-                        <span>07</span>
-                    </button>
-                </li>
+
             </ul>
         </div>
     </div>

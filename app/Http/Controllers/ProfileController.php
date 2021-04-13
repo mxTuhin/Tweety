@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Advertisement;
+use App\TechNews;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -69,7 +71,23 @@ class ProfileController extends Controller
 
     //
     public function show(User $user){
-        return view('profiles.show', compact('user'));
+        $ids=\auth()->user()->follows()->pluck('id');
+        $ids->push(\auth()->user()->id);
+
+        $id_array=array();
+        foreach ($ids as $id){
+            array_push($id_array, $id);
+        }
+
+        $user_list=User::all()->except($id_array);
+        $tech_news=TechNews::all();
+        $advertisement=Advertisement::all();
+        return view('profiles.show', [
+            'user_list'=>$user_list,
+            'tech_news'=>$tech_news,
+            'advertises'=>$advertisement,
+            'user'=>$user
+        ]);
     }
 
     public function edit(User $user){

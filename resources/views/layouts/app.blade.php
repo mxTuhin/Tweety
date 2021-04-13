@@ -83,7 +83,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="user/images/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('user/images/favicon.ico')}}">
 
     <!-- CSS
 	============================================ -->
@@ -110,6 +110,13 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
+    <style>
+        .send_love_button:hover {
+            color: red;
+
+        }
+    </style>
+
 </head>
 
 <body>
@@ -124,7 +131,7 @@
                     <div class="header-top-navigation">
                         <nav>
                             <ul>
-                                <li class="active"><a href="index.html">home</a></li>
+                                <li class="active"><a href="{{route('timeline_user')}}">home</a></li>
                                 <li class="msg-trigger"><a class="msg-trigger-btn" href="#a">message</a>
                                     <div class="message-dropdown" id="a">
                                         <div class="dropdown-title">
@@ -302,8 +309,8 @@
                 <div class="col-md-2">
                     <!-- brand logo start -->
                     <div class="brand-logo text-center">
-                        <a href="index.html">
-                            <img src="user/images/logo/logo.png" alt="brand logo">
+                        <a href="{{route('timeline_user')}}">
+                            <img src="{{asset('user/images/logo/logo.png')}}" alt="brand logo">
                         </a>
                     </div>
                     <!-- brand logo end -->
@@ -335,7 +342,7 @@
                                     </div>
                                     <div class="profile-body">
                                         <ul>
-                                            <li><a href="profile.html"><i class="flaticon-user"></i>Profile</a></li>
+                                            <li><a href="{{route('profile',current_user())}}"><i class="flaticon-user"></i>Profile</a></li>
                                             <li><a href="#"><i class="flaticon-message"></i>Inbox</a></li>
                                             <li><a href="#"><i class="flaticon-document"></i>Activity</a></li>
                                         </ul>
@@ -371,8 +378,8 @@
     <div class="mobile-header-wrapper sticky d-block d-lg-none">
         <div class="mobile-header position-relative ">
             <div class="mobile-logo">
-                <a href="index.html">
-                    <img src="user/images/logo/logo-white.png" alt="logo">
+                <a href="{{route('timeline_user')}}">
+                    <img src="{{asset('user/images/logo/logo-white.png')}}" alt="logo">
                 </a>
             </div>
             <div class="mobile-menu w-100">
@@ -519,7 +526,7 @@
                 <div class="profile-thumb profile-setting-box">
                     <a href="javascript:void(0)" class="profile-triger">
                         <figure class="profile-thumb-middle">
-                            <img src="user/images/profile/profile-small-1.jpg" alt="profile picture">
+                            <img src="{{asset("user/images/profile")}}/{{auth()->user()->profile_img}}" alt="profile picture">
                         </figure>
                     </a>
                     <div class="profile-dropdown text-left">
@@ -602,24 +609,27 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card card-small mb-0 active-profile-wrapper">
-                            <div class="active-profiles-wrapper">
-                                <div class="active-profile-carousel slick-row-20 slick-arrow-style">
-                                    <!-- profile picture end -->
-                                    <div class="single-slide">
-                                        <div class="profile-thumb active profile-active">
-                                            <a href="#">
-                                                <figure class="profile-thumb-small">
-                                                    <img src="user/images/profile/profile-small-1.jpg" alt="profile picture">
-                                                </figure>
-                                            </a>
+{{--                        Profile Dock--}}
+                        @foreach(auth()->user()->follows as $user)
+                            <div class="card card-small mb-0 active-profile-wrapper">
+                                <div class="active-profiles-wrapper">
+                                    <div class="active-profile-carousel slick-row-20 slick-arrow-style">
+                                        <!-- profile picture end -->
+                                        <div class="single-slide">
+                                            <div class="profile-thumb active profile-active">
+                                                <a href="#">
+                                                    <figure class="profile-thumb-small">
+                                                        <img src="{{asset("user/images/profile")}}/{{$user->profile_img}}" alt="profile picture">
+                                                    </figure>
+                                                </a>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <!-- profile picture end -->
+                                        <!-- profile picture end -->
 
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        @endforeach
                         <div class="footer-card position-relative">
                             <div class="live-chat-inner">
                                 <div class="chat-text-field">

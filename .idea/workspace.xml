@@ -6,15 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="7a204413-de8a-4ad8-9258-0e058ce014df" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FollowController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FollowController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TweetController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TweetController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_19_184655_create_tweets_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_19_184655_create_tweets_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_19_194437_create_follows_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_19_194437_create_follows_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/_angry-tweets.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/_angry-tweets.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/_friends-list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/_friends-list.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/_timeline.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/_timeline.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profiles/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profiles/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -222,6 +220,9 @@
     <option name="height" value="1087" />
   </component>
   <component name="ProjectId" id="1qAt7HCORilSIqDHSqaRdauKPEY" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -375,6 +376,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SearchEverywhereHistoryKey" value="config&#9;FILE&#9;file://E:/XaMpP/htdocs/tweety/config&#10;config/app.&#9;FILE&#9;file://E:/Xampp/htdocs/tweety/config/app.php&#10;HomeCon&#9;FILE&#9;file://E:/Xampp/htdocs/tweety/vendor/laravel/ui/src/Auth/stubs/controllers/HomeController.stub&#10;web.p&#9;FILE&#9;file://E:/Xampp/htdocs/tweety/routes/web.php&#10;web&#9;FILE&#9;file://E:/Xampp/htdocs/tweety/routes/web.php&#10;Profile&#9;FILE&#9;file://E:/Xampp/htdocs/tweety/app/Http/Controllers/ProfileController.php&#10;composer.&#9;FILE&#9;file://E:/Xampp/htdocs/tweety/composer.json&#10;show&#9;FILE&#9;file://E:/Xampp/htdocs/tweety/resources/views/profiles/show.blade.php&#10;FollowCo&#9;FILE&#9;file://E:/Xampp/htdocs/tweety/app/Http/Controllers/FollowController.php&#10;we&#9;FILE&#9;file://E:/Xampp/htdocs/tweety/routes/web.php&#10;We&#9;FILE&#9;file://E:/Xampp/htdocs/tweety/routes/web.php&#10;TweetC&#9;FILE&#9;file://E:/Xampp/htdocs/tweety/app/Http/Controllers/TweetController.php&#10;sh&#9;FILE&#9;file://E:/Xampp/htdocs/tweety/resources/views/profiles/show.blade.php&#10;FollowCon&#9;null&#9;null&#10;web.&#9;FILE&#9;file://E:/Xampp/htdocs/tweety/routes/web.php&#10;side&#9;FILE&#9;file://E:/Xampp/htdocs/tweety/resources/views/_sidebar-links.blade.php&#10;app&#9;FILE&#9;file://E:/Xampp/htdocs/tweety/resources/views/layouts/app.blade.php&#10;Tweet&#9;FILE&#9;file://E:/Xampp/htdocs/tweety/app/Tweet.php&#10;TweetCon&#9;FILE&#9;file://E:/Xampp/htdocs/tweety/app/Http/Controllers/TweetController.php&#10;Show&#9;FILE&#9;file://E:/Xampp/htdocs/tweety/resources/views/profiles/show.blade.php&#10;User&#9;FILE&#9;file://E:/Xampp/htdocs/tweety/app/User.php&#10;Profi&#9;FILE&#9;file://E:/Xampp/htdocs/tweety/app/Http/Controllers/ProfileController.php&#10;frien&#9;FILE&#9;file://E:/Xampp/htdocs/tweety/resources/views/_friends-list.blade.php&#10;ProfileC&#9;null&#9;null&#10;TweetCo&#9;FILE&#9;file://E:/Xampp/htdocs/tweety/app/Http/Controllers/TweetController.php&#10;LoginCon&#9;null&#9;null&#10;Login&#9;FILE&#9;file://E:/Xampp/htdocs/tweety/resources/views/auth/login.blade.php&#10;TweetCont&#9;FILE&#9;file://E:/Xampp/htdocs/tweety/app/Http/Controllers/TweetController.php&#10;Twee&#9;FILE&#9;file://E:/Xampp/htdocs/tweety/app/Tweet.php&#10;HomeC&#9;FILE&#9;file://E:/Xampp/htdocs/tweety/app/Http/Controllers/HomeController.php&#10;home&#9;FILE&#9;file://E:/Xampp/htdocs/tweety/resources/views/home.blade.php&#10;create_foll&#9;FILE&#9;file://E:/Xampp/htdocs/tweety/database/migrations/2020_07_19_194437_create_follows_table.php&#10;tweet&#9;FILE&#9;file://E:/Xampp/htdocs/tweety/resources/views/_angry-tweets.blade.php&#10;_publi&#9;FILE&#9;file://E:/Xampp/htdocs/tweety/resources/views/_publish-tweet-panel.blade.php&#10;user&#9;null&#9;null&#10;Twe&#9;FILE&#9;file://E:/Xampp/htdocs/tweety/resources/views/_publish-tweet-panel.blade.php&#10;home.bla&#9;FILE&#9;file://E:/Xampp/htdocs/tweety/resources/views/home.blade.php&#10;home.bl&#9;FILE&#9;file://E:/Xampp/htdocs/tweety/resources/views/home.blade.php" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -428,6 +430,7 @@
       <workItem from="1618172907836" duration="8230000" />
       <workItem from="1618256591529" duration="4441000" />
       <workItem from="1618316672407" duration="5396000" />
+      <workItem from="1618328163366" duration="10756000" />
     </task>
     <servers />
   </component>
@@ -462,6 +465,9 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
