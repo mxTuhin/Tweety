@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Tweet;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class TweetController extends Controller
@@ -40,6 +41,12 @@ class TweetController extends Controller
             $tweet = Tweet::find(\request()->id);
             $tweet->like_count+=1;
             $tweet->save();
+
+            DB::table('notifications')->insert([
+                'user_id'=>$tweet->user->id,
+                'type'=>'notification',
+                'data'=>current_user()->name.' has Liked your Post'
+            ]);
         }
         return "meow";
     }

@@ -35,7 +35,8 @@
         <!-- profile picture end -->
 
         <div class="posted-author">
-            <h6 class="author"><a href="{{route('profile',$tweet->user)}}"">{{$tweet->user->name}}</a></h6>
+            <h6 class="author"><a href="{{route('profile',$tweet->user)}}">{{$tweet->user->name}}</a></h6>
+            <p class="list-subtitle">{{$tweet->created_at->diffForHumans()}}</p>
 
         </div>
 

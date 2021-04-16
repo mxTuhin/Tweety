@@ -33,6 +33,7 @@ Route::middleware('auth')->group(function (){
     //Follow Controller
     Route::post('/follow_user', 'FollowController@store')->name('follow_user');
 
+
 });
 
 Route::get('/timeline', 'HomeController@timeline')->name('timeline_user');

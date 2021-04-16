@@ -80,11 +80,9 @@ class ProfileController extends Controller
         }
 
         $user_list=User::all()->except($id_array);
-        $tech_news=TechNews::all();
         $advertisement=Advertisement::all();
         return view('profiles.show', [
             'user_list'=>$user_list,
-            'tech_news'=>$tech_news,
             'advertises'=>$advertisement,
             'user'=>$user
         ]);

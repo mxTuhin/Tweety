@@ -610,11 +610,13 @@
                             </div>
                         </div>
 {{--                        Profile Dock--}}
-                        @foreach(auth()->user()->follows as $user)
+
                             <div class="card card-small mb-0 active-profile-wrapper">
+
                                 <div class="active-profiles-wrapper">
                                     <div class="active-profile-carousel slick-row-20 slick-arrow-style">
                                         <!-- profile picture end -->
+                                        @foreach(auth()->user()->follows as $user)
                                         <div class="single-slide">
                                             <div class="profile-thumb active profile-active">
                                                 <a href="#">
@@ -625,11 +627,13 @@
                                             </div>
                                         </div>
                                         <!-- profile picture end -->
+                                        @endforeach
 
                                     </div>
                                 </div>
+
                             </div>
-                        @endforeach
+
                         <div class="footer-card position-relative">
                             <div class="live-chat-inner">
                                 <div class="chat-text-field">
@@ -714,89 +718,18 @@
                         <div class="card card-small mb-0 active-profile-mob-wrapper">
                             <div class="active-profiles-mob-wrapper slick-row-10">
                                 <div class="active-profile-mobile">
-                                    <!-- profile picture end -->
-                                    <div class="single-slide">
-                                        <div class="profile-thumb active profile-active">
-                                            <a href="#">
-                                                <figure class="profile-thumb-small profile-active">
-                                                    <img src="user/images/profile/profile-small-1.jpg" alt="profile picture">
-                                                </figure>
-                                            </a>
+                                    @foreach(auth()->user()->follows as $user)
+                                        <div class="single-slide">
+                                            <div class="profile-thumb active profile-active">
+                                                <a href="#">
+                                                    <figure class="profile-thumb-small">
+                                                        <img src="{{asset("user/images/profile")}}/{{$user->profile_img}}" alt="profile picture">
+                                                    </figure>
+                                                </a>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <!-- profile picture end -->
-
-                                    <!-- profile picture end -->
-                                    <div class="single-slide">
-                                        <div class="profile-thumb active profile-active">
-                                            <a href="javascript:void(0)">
-                                                <figure class="profile-thumb-small profile-active">
-                                                    <img src="user/images/profile/profile-small-8.jpg" alt="profile picture">
-                                                </figure>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <!-- profile picture end -->
-
-                                    <!-- profile picture end -->
-                                    <div class="single-slide">
-                                        <div class="profile-thumb active profile-active">
-                                            <a href="javascript:void(0)">
-                                                <figure class="profile-thumb-small profile-active">
-                                                    <img src="user/images/profile/profile-small-2.jpg" alt="profile picture">
-                                                </figure>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <!-- profile picture end -->
-
-                                    <!-- profile picture end -->
-                                    <div class="single-slide">
-                                        <div class="profile-thumb active profile-active">
-                                            <a href="javascript:void(0)">
-                                                <figure class="profile-thumb-small profile-active">
-                                                    <img src="user/images/profile/profile-small-3.jpg" alt="profile picture">
-                                                </figure>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <!-- profile picture end -->
-
-                                    <!-- profile picture end -->
-                                    <div class="single-slide">
-                                        <div class="profile-thumb active profile-active">
-                                            <a href="javascript:void(0)">
-                                                <figure class="profile-thumb-small profile-active">
-                                                    <img src="user/images/profile/profile-small-4.jpg" alt="profile picture">
-                                                </figure>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <!-- profile picture end -->
-
-                                    <!-- profile picture end -->
-                                    <div class="single-slide">
-                                        <div class="profile-thumb active profile-active">
-                                            <a href="javascript:void(0)">
-                                                <figure class="profile-thumb-small profile-active">
-                                                    <img src="user/images/profile/profile-small-5.jpg" alt="profile picture">
-                                                </figure>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <!-- profile picture end -->
-
-                                    <!-- profile picture end -->
-                                    <div class="single-slide">
-                                        <div class="profile-thumb active profile-active">
-                                            <a href="javascript:void(0)">
-                                                <figure class="profile-thumb-small profile-active">
-                                                    <img src="user/images/profile/profile-small-9.jpg" alt="profile picture">
-                                                </figure>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <!-- profile picture end -->
+                                        <!-- profile picture end -->
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -841,6 +774,58 @@
         }
     });
 </script>
+
+
+<script>
+    function add_like(_id){
+        var like=document.getElementById('like_count'+_id).innerText;
+        var like_counter=parseInt(like);
+
+        $.ajax({
+            type : 'post',
+            url : '{{URL::to(route('add_like'))}}',
+            data:{
+                id: _id,
+            },
+            success:function(data){
+                console.log(data)
+                document.getElementById('like_count'+_id).innerText = like_counter+1;
+            }
+        });
+
+    }
+</script>
+
+
+<script>
+    function follow_user(user_id){
+        try{
+            if(document.getElementById('follow_button').innerText=="Follow"){
+                document.getElementById('follow_button').innerText="Unfollow";
+            }
+            else{
+                document.getElementById('follow_button').innerText="Follow";
+            }
+        }catch (err){
+            console.log("...")
+        }
+
+
+        $.ajax({
+            type : 'post',
+            url : '{{URL::to(route('follow_user'))}}',
+            data:{
+                id: user_id
+            },
+            success:function(data){
+                console.log(data)
+            }
+        });
+
+    }
+</script>
+
+
 @yield('dashboardJS')
 
 </body>

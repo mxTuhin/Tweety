@@ -82,6 +82,9 @@
                         <div class="profile-edit-panel">
                             @if(current_user()->is($user))
                             <button class="edit-btn">edit profile</button>
+                            @else
+
+                                <x-follow-button :user="$user"></x-follow-button>
                             @endif
                         </div>
                     </div>
@@ -397,5 +400,9 @@
         </div>
     </div>
 
+
+@endsection
+
+@section('dashboardJS')
 
 @endsection

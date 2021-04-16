@@ -137,24 +137,13 @@
                     <aside class="widget-area">
                         <!-- widget single item start -->
                         <div class="card widget-item">
-                            <h4 class="widget-title">Recent Notifications</h4>
+                            <h4 class="widget-title">To Do List</h4>
                             <div class="widget-body">
                                 <ul class="like-page-list-wrapper">
                                     <li class="unorder-list">
-                                        <!-- profile picture end -->
-                                        <div class="profile-thumb">
-                                            <a href="#">
-                                                <figure class="profile-thumb-small">
-                                                    <img src="user/images/profile/profile-small-9.jpg" alt="profile picture">
-                                                </figure>
-                                            </a>
-                                        </div>
-                                        <!-- profile picture end -->
 
-                                        <div class="unorder-list-info">
-                                            <h3 class="list-title"><a href="#">Any one can join with us if you want</a></h3>
-                                            <p class="list-subtitle">5 min ago</p>
-                                        </div>
+
+
                                     </li>
 
                                 </ul>
@@ -201,39 +190,5 @@
 
 @section('dashboardJS')
 
-    <script>
-        function follow_user(user_id){
-            $.ajax({
-                type : 'post',
-                url : '{{URL::to(route('follow_user'))}}',
-                data:{
-                    id: user_id
-                },
-                success:function(data){
-                    console.log(data)
-                }
-            });
-
-        }
-    </script>
-    <script>
-        function add_like(_id){
-            var like=document.getElementById('like_count'+_id).innerText;
-            var like_counter=parseInt(like);
-
-            $.ajax({
-                type : 'post',
-                url : '{{URL::to(route('add_like'))}}',
-                data:{
-                    id: _id
-                },
-                success:function(data){
-                    console.log(data)
-                    document.getElementById('like_count'+_id).innerText = like_counter+1;
-                }
-            });
-
-        }
-    </script>
 
 @endsection

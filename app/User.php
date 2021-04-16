@@ -70,6 +70,8 @@ class User extends Authenticatable
     public function tweets(){
         return $this->hasMany(Tweet::class)->latest();
     }
+
+
     public function following(User $user){
         return $this->follows->contains($user);
     }

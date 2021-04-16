@@ -5,12 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7a204413-de8a-4ad8-9258-0e058ce014df" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/ToDoList.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_04_15_164449_create_notifications_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_04_16_193206_create_to_do_lists_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/user/images/profile/2Sdj42p0.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/notifications.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/tweets/ToDoList.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FollowController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FollowController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TweetController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TweetController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/_angry-tweets.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/_angry-tweets.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/_friends-list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/_friends-list.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/_timeline.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/_timeline.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/follow-button.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/follow-button.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/profiles/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profiles/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
@@ -430,7 +438,11 @@
       <workItem from="1618172907836" duration="8230000" />
       <workItem from="1618256591529" duration="4441000" />
       <workItem from="1618316672407" duration="5396000" />
-      <workItem from="1618328163366" duration="10756000" />
+      <workItem from="1618328163366" duration="11377000" />
+      <workItem from="1618400430556" duration="48000" />
+      <workItem from="1618520084518" duration="186000" />
+      <workItem from="1618568556685" duration="6502000" />
+      <workItem from="1618580034634" duration="273000" />
     </task>
     <servers />
   </component>
