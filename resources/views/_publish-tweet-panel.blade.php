@@ -14,7 +14,7 @@
         <div class="share-content-box w-100">
             <form class="share-text-box">
                 <textarea name="body" class="share-text-field" aria-disabled="true" placeholder="Say Something" data-toggle="modal" data-target="#textbox" id="email"></textarea>
-                <button class="btn-share" type="submit">share</button>
+                <button type="button" class="btn-share" type="submit">share</button>
             </form>
         </div>
         <!-- share content box end -->

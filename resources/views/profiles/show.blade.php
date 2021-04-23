@@ -31,19 +31,22 @@
                         <div class="widget-body">
                             <div class="sweet-galley img-gallery">
                                 <div class="row row-5">
-                                    <div class="col-4">
-                                        <div class="gallery-tem">
-                                            <figure class="post-thumb">
-                                                <a class="gallery-selector" href="assets/images/gallery/gallery-1.jpg">
-                                                    <img src="assets/images/gallery/gallery-1.jpg" alt="sweet memory">
-                                                </a>
-                                            </figure>
+                                    @foreach($user->sweet_memories as $mems)
+                                        <div class="col-4">
+                                            <div class="gallery-tem">
+                                                <figure class="post-thumb">
+                                                    <a class="gallery-selector" href="{{asset('user/images/uploads')}}/{{$mems->img}}">
+                                                        <img style="height: 80px" src="{{asset('user/images/uploads')}}/{{$mems->img}}" alt="Sweet Memories">
+                                                    </a>
+                                                </figure>
+                                            </div>
                                         </div>
-                                    </div>
+                                    @endforeach
+
                                     <div class="col-4">
-                                        <div >
+                                        <div style="margin-top: 20px" >
                                             <figure class="post-thumb">
-                                                <button  >
+                                                <button data-toggle="modal" data-target="#sweetMemoriesModal" >
                                                     <i style="font-size: 40px; color: #5ec9d1" class="fas fa-plus"></i>
                                                 </button>
                                             </figure>
@@ -125,6 +128,32 @@
                     </div>
                     <!-- widget single item end -->
                 </aside>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="sweetMemoriesModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Select From Images</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                    @foreach($user->gallery as $images)
+                        <div class="col-4 col-sm-4">
+                            <a href="{{route('add_sweet_memory', $images->img)}}">
+                                <img style="height: 200px" src="{{asset("user/images/uploads")}}/{{$images->img}}">
+                            </a>
+                        </div>
+                    @endforeach
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

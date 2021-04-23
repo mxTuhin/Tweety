@@ -40,18 +40,18 @@
 
         </div>
 
-{{--        <div class="post-settings-bar">--}}
-{{--            <span></span>--}}
-{{--            <span></span>--}}
-{{--            <span></span>--}}
-{{--            <div class="post-settings arrow-shape">--}}
-{{--                <ul>--}}
-{{--                    <li><button>copy link to adda</button></li>--}}
-{{--                    <li><button>edit post</button></li>--}}
-{{--                    <li><button>embed adda</button></li>--}}
-{{--                </ul>--}}
-{{--            </div>--}}
-{{--        </div>--}}
+        <div class="post-settings-bar">
+            <span></span>
+            <span></span>
+            <span></span>
+            <div class="post-settings arrow-shape">
+                <ul>
+                    <li><button>Copy Link</button></li>
+                    <li><button>Edit Post</button></li>
+
+                </ul>
+            </div>
+        </div>
     </div>
     <!-- post title start -->
     <div class="post-content">
@@ -60,23 +60,23 @@
         </p>
         <div class="post-thumb-gallery">
             <figure class="post-thumb img-popup">
-                <a href="user/images/post/post-large-1.jpg">
+                <a href="{{asset("user/images/uploads")}}/{{$tweet->image}}">
                     @if($tweet->image!="")
-                        <img src="{{asset("user/images/tweets")}}/{{$tweet->image}}" alt="post image">
+                        <img src="{{asset("user/images/uploads")}}/{{$tweet->image}}" alt="Tweeties">
                     @endif
                 </a>
             </figure>
         </div>
         <div class="post-meta">
             <button onclick="add_like('{{$tweet->id}}')" class="post-meta-like">
-                <i class="bi bi-heart-beat"></i>
+                <i class="fas fa-heartbeat"></i>
                 <span id="like_count{{$tweet->id}}">{{$tweet->like_count}}</span>
 
             </button>
             <ul class="comment-share-meta">
                 <li>
                     <button class="post-comment">
-                        <i class="bi bi-chat-bubble"></i>
+                        <i class="fas fa-comment-dots"></i>
                         <span>0</span>
                     </button>
                 </li>

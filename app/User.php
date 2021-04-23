@@ -76,6 +76,18 @@ class User extends Authenticatable
         return $this->hasMany(Notifications::class)->latest()->limit(5);
     }
 
+    public function gallery(){
+        return $this->hasMany(Gallery::class)->latest();
+    }
+
+    public function sweet_memories(){
+        return $this->hasMany(SweetMemories::class)->latest();
+    }
+
+    public function to_do_list(){
+        return $this->hasMany(ToDoList::class)->latest();
+    }
+
 
     public function following(User $user){
         return $this->follows->contains($user);

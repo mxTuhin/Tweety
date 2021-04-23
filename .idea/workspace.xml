@@ -5,26 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7a204413-de8a-4ad8-9258-0e058ce014df" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Notifications.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/profilebar_links.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/profiles/about.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/profiles/friends.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/profiles/layout.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Gallery.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/GalleryController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_04_23_160136_create_galleries_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/user/images/uploads/9Cuvsp3S.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/user/images/uploads/IGrv9hut.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/user/images/uploads/LkluuCAe.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/user/images/uploads/NROTmuEP.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/user/images/uploads/T7Qarlg2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/user/images/uploads/cisbUCG1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/user/images/uploads/eQuvMbLD.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/profiles/photos.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/to_do_list.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SweetMemoriesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SweetMemoriesController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TweetController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TweetController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/SweetMemories.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/SweetMemories.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_15_164449_create_notifications_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_04_15_164449_create_notifications_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_16_193206_create_to_do_lists_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_04_16_193206_create_to_do_lists_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_23_151255_create_sweet_memories_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_04_23_151255_create_sweet_memories_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/user/images/tweets/T7Qarlg2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/_angry-tweets.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/_angry-tweets.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/_friends-list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/_friends-list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/_mayKnowFriends.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/_mayKnowFriends.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/_publish-tweet-panel.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/_publish-tweet-panel.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/_timeline.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/_timeline.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/notifications.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/notifications.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/profiles/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profiles/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/tweets/ToDoList.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/tweets/ToDoList.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -449,7 +455,7 @@
       <workItem from="1618580034634" duration="3013000" />
       <workItem from="1618642041232" duration="11736000" />
       <workItem from="1619117629897" duration="1454000" />
-      <workItem from="1619157520470" duration="4420000" />
+      <workItem from="1619157520470" duration="12049000" />
     </task>
     <servers />
   </component>

@@ -89,16 +89,18 @@
 
                 <div class="col-lg-3 order-3">
                     <aside class="widget-area">
-                        <!-- widget single item start -->
                         <div class="card widget-item">
                             <h4 class="widget-title">To Do List</h4>
                             <div class="widget-body">
                                 <ul class="like-page-list-wrapper">
-
+                                    @foreach(auth()->user()->to_do_list as $list)
+                                        @include('to_do_list')
+                                    @endforeach
 
                                 </ul>
                             </div>
                         </div>
+
                         <!-- widget single item end -->
 
                         <!-- widget single item start -->
@@ -122,9 +124,11 @@
                             <h4 class="widget-title">Friend List</h4>
                             <div class="widget-body">
                                 <ul class="like-page-list-wrapper">
+                                    <ul class="bg-blue-100 rounded-lg p-4">
                                     @foreach(auth()->user()->follows as $users)
                                         @include('_friends-list')
                                     @endforeach
+                                    </ul>
 
 
                                 </ul>

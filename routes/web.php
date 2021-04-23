@@ -41,13 +41,15 @@ Route::get('/timeline', 'HomeController@timeline')->name('timeline_user');
 Route::get('/profile/{user:username}', 'ProfileController@show')->name('profile');
 Route::get('/profile/{user:username}/about', 'ProfileController@about')->name('about');
 Route::get('/profile/{user:username}/friends', 'ProfileController@friends')->name('friends');
-Route::get('/profile/{user:username}/photos', 'ProfileController@about')->name('photos');
+Route::get('/profile/{user:username}/photos', 'ProfileController@photos')->name('photos');
 
 
 
 
 Route::post('/signup', 'ProfileController@store')->name('store_user');
 Route::post('/user_login', 'ProfileController@login')->name('login_user');
+
+Route::get('/profile/sweet_memories/{img}', [\App\Http\Controllers\SweetMemoriesController::class, 'add_memory'])->name('add_sweet_memory');
 
 
 

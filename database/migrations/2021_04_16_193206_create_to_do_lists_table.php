@@ -16,7 +16,7 @@ class CreateToDoListsTable extends Migration
     {
         Schema::create('to_do_lists', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->foreignId('user_id');
             $table->text('text');
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));

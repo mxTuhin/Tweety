@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Gallery;
 use App\Notifications;
 use App\Tweet;
 use Illuminate\Http\Request;
@@ -26,7 +27,7 @@ class TweetController extends Controller
         if(\request()->hasFile('image')){
             $image = \request()->file('image');
             $new_name = Str::random(8) . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('user/images/tweets'), $new_name);
+            $image->move(public_path('user/images/uploads'), $new_name);
 
 
         }
@@ -34,6 +35,11 @@ class TweetController extends Controller
             'user_id'=>auth()->id(),
             'body'=>\request('body'),
             'image'=>$new_name
+        ]);
+        Gallery::create([
+           'user_id'=>auth()->id(),
+           'img_tag'=>"tweet",
+           'img'=>$new_name
         ]);
         return redirect()->route('timeline_user');
     }

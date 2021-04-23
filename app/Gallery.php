@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SweetMemories extends Model
+class Gallery extends Model
 {
     //
     protected $fillable = [
-        'user_id', 'img'
+        'user_id', 'img_tag', 'img'
     ];
 }
