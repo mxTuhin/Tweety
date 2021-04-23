@@ -71,6 +71,11 @@ class User extends Authenticatable
         return $this->hasMany(Tweet::class)->latest();
     }
 
+    public function notifications()
+    {
+        return $this->hasMany(Notifications::class)->latest()->limit(5);
+    }
+
 
     public function following(User $user){
         return $this->follows->contains($user);

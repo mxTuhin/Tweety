@@ -109,11 +109,20 @@
     <link rel="stylesheet" href="{{asset('user/css/style.css')}}">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.0/css/lightgallery.min.css">
 
     <style>
         .send_love_button:hover {
             color: red;
 
+        }
+        @media only screen and (min-width: 1600px) {
+            #large_profile_img_custom{
+                height:260px;
+            }
+            #profile_banner_custom{
+                height: 500px
+            }
         }
     </style>
 
@@ -224,78 +233,13 @@
                                             </button>
                                         </div>
                                         <ul class="dropdown-msg-list">
-                                            <li class="msg-list-item d-flex justify-content-between">
-                                                <!-- profile picture end -->
-                                                <div class="profile-thumb">
-                                                    <figure class="profile-thumb-middle">
-                                                        <img src="user/images/profile/profile-small-3.jpg" alt="profile picture">
-                                                    </figure>
-                                                </div>
-                                                <!-- profile picture end -->
+                                            @foreach(current_user()->notifications as $notify)
+                                                @include('notifications')
+                                            @endforeach
 
-                                                <!-- message content start -->
-                                                <div class="msg-content notification-content">
-                                                    <a href="profile.html">Robert Faul</a>,
-                                                    <a href="profile.html">william jhon</a>
-                                                    <p>and 35 other people reacted to your photo</p>
-                                                </div>
-                                                <!-- message content end -->
-
-                                                <!-- message time start -->
-                                                <div class="msg-time">
-                                                    <p>25 Apr 2019</p>
-                                                </div>
-                                                <!-- message time end -->
-                                            </li>
-                                            <li class="msg-list-item d-flex justify-content-between">
-                                                <!-- profile picture end -->
-                                                <div class="profile-thumb">
-                                                    <figure class="profile-thumb-middle">
-                                                        <img src="user/images/profile/profile-small-4.jpg" alt="profile picture">
-                                                    </figure>
-                                                </div>
-                                                <!-- profile picture end -->
-
-                                                <!-- message content start -->
-                                                <div class="msg-content notification-content">
-                                                    <a href="profile.html">Robert mushkil</a>,
-                                                    <a href="profile.html">Terry jhon</a>
-                                                    <p>and 20 other people reacted to your photo</p>
-                                                </div>
-                                                <!-- message content end -->
-
-                                                <!-- message time start -->
-                                                <div class="msg-time">
-                                                    <p>20 May 2019</p>
-                                                </div>
-                                                <!-- message time end -->
-                                            </li>
-                                            <li class="msg-list-item d-flex justify-content-between">
-                                                <!-- profile picture end -->
-                                                <div class="profile-thumb">
-                                                    <figure class="profile-thumb-middle">
-                                                        <img src="user/images/profile/profile-small-6.jpg" alt="profile picture">
-                                                    </figure>
-                                                </div>
-                                                <!-- profile picture end -->
-
-                                                <!-- message content start -->
-                                                <div class="msg-content notification-content">
-                                                    <a href="profile.html">Horijon Mbala</a>,
-                                                    <a href="profile.html">Bashu jhon</a>
-                                                    <p>and 55 other people reacted to your post</p>
-                                                </div>
-                                                <!-- message content end -->
-
-                                                <!-- message time start -->
-                                                <div class="msg-time">
-                                                    <p>15 Jan 2019</p>
-                                                </div>
-                                                <!-- message time end -->
-                                            </li>
                                         </ul>
                                         <div class="msg-dropdown-footer">
-                                            <button>See all in messenger</button>
+
                                             <button>Mark All as Read</button>
                                         </div>
                                     </div>
@@ -343,8 +287,7 @@
                                     <div class="profile-body">
                                         <ul>
                                             <li><a href="{{route('profile',current_user())}}"><i class="flaticon-user"></i>Profile</a></li>
-                                            <li><a href="#"><i class="flaticon-message"></i>Inbox</a></li>
-                                            <li><a href="#"><i class="flaticon-document"></i>Activity</a></li>
+
                                         </ul>
                                         <ul>
                                             <li><a href="#"><i class="flaticon-settings"></i>Setting</a></li>
@@ -385,128 +328,16 @@
             <div class="mobile-menu w-100">
                 <ul>
                     <li>
-                        <button class="notification request-trigger"><i class="flaticon-users"></i>
+                        <button class="notification request-trigger"><i class="flaticon-notification"></i>
                             <span>03</span>
                         </button>
                         <ul class="frnd-request-list">
-                            <li>
-                                <div class="frnd-request-member">
-                                    <figure class="request-thumb">
-                                        <a href="profile.html">
-                                            <img src="user/images/profile/profile-midle-1.jpg" alt="proflie author">
-                                        </a>
-                                    </figure>
-                                    <div class="frnd-content">
-                                        <h6 class="author"><a href="profile.html">merry watson</a></h6>
-                                        <p class="author-subtitle">Works at HasTech</p>
-                                        <div class="request-btn-inner">
-                                            <button class="frnd-btn">confirm</button>
-                                            <button class="frnd-btn delete">delete</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="frnd-request-member">
-                                    <figure class="request-thumb">
-                                        <a href="profile.html">
-                                            <img src="user/images/profile/profile-midle-2.jpg" alt="proflie author">
-                                        </a>
-                                    </figure>
-                                    <div class="frnd-content">
-                                        <h6 class="author"><a href="profile.html">merry watson</a></h6>
-                                        <p class="author-subtitle">Works at HasTech</p>
-                                        <div class="request-btn-inner">
-                                            <button class="frnd-btn">confirm</button>
-                                            <button class="frnd-btn delete">delete</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="frnd-request-member">
-                                    <figure class="request-thumb">
-                                        <a href="profile.html">
-                                            <img src="user/images/profile/profile-midle-3.jpg" alt="proflie author">
-                                        </a>
-                                    </figure>
-                                    <div class="frnd-content">
-                                        <h6 class="author"><a href="profile.html">merry watson</a></h6>
-                                        <p class="author-subtitle">Works at HasTech</p>
-                                        <div class="request-btn-inner">
-                                            <button class="frnd-btn">confirm</button>
-                                            <button class="frnd-btn delete">delete</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
+                            @foreach(current_user()->notifications as $notify)
+                                @include('notifications')
+                            @endforeach
                         </ul>
                     </li>
-                    <li>
-                        <button class="notification"><i class="flaticon-notification"></i>
-                            <span>03</span>
-                        </button>
-                    </li>
-                    <li>
-                        <button class="chat-trigger notification"><i class="flaticon-chats"></i>
-                            <span>04</span>
-                        </button>
-                        <div class="mobile-chat-box">
-                            <div class="live-chat-title">
-                                <!-- profile picture end -->
-                                <div class="profile-thumb">
-                                    <a href="profile.html">
-                                        <figure class="profile-thumb-small profile-active">
-                                            <img src="user/images/profile/profile-small-15.jpg" alt="profile picture">
-                                        </figure>
-                                    </a>
-                                </div>
-                                <!-- profile picture end -->
-                                <div class="posted-author">
-                                    <h6 class="author"><a href="profile.html">Robart Marloyan</a></h6>
-                                    <span class="active-pro">active now</span>
-                                </div>
-                                <div class="live-chat-settings ml-auto">
-                                    <button class="chat-settings"><img src="user/images/icons/settings.png" alt=""></button>
-                                    <button class="close-btn"><img src="user/images/icons/close.png" alt=""></button>
-                                </div>
-                            </div>
-                            <div class="message-list-inner">
-                                <ul class="message-list custom-scroll">
-                                    <li class="text-friends">
-                                        <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text</p>
-                                        <div class="message-time">10 minute ago</div>
-                                    </li>
-                                    <li class="text-author">
-                                        <p>Many desktop publishing packages and web page editors</p>
-                                        <div class="message-time">5 minute ago</div>
-                                    </li>
-                                    <li class="text-friends">
-                                        <p>packages and web page editors </p>
-                                        <div class="message-time">2 minute ago</div>
-                                    </li>
-                                    <li class="text-friends">
-                                        <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text</p>
-                                        <div class="message-time">10 minute ago</div>
-                                    </li>
-                                    <li class="text-author">
-                                        <p>Many desktop publishing packages and web page editors</p>
-                                        <div class="message-time">5 minute ago</div>
-                                    </li>
-                                    <li class="text-friends">
-                                        <p>packages and web page editors </p>
-                                        <div class="message-time">2 minute ago</div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="chat-text-field mob-text-box">
-                                <textarea class="live-chat-field custom-scroll" placeholder="Text Message"></textarea>
-                                <button class="chat-message-send" type="submit" value="submit">
-                                    <img src="user/images/icons/plane.png" alt="">
-                                </button>
-                            </div>
-                        </div>
-                    </li>
+
                     <li>
                         <button class="search-trigger">
                             <i class="search-icon flaticon-search"></i>
@@ -531,18 +362,28 @@
                     </a>
                     <div class="profile-dropdown text-left">
                         <div class="profile-head">
-                            <h5 class="name"><a href="#">Madison Howard</a></h5>
-                            <a class="mail" href="#">mailnam@mail.com</a>
+                            <h5 class="name"><a href="#">{{current_user()->name}}</a></h5>
+                            <a class="mail" href="#">{{current_user()->email}}</a>
                         </div>
                         <div class="profile-body">
                             <ul>
-                                <li><a href="profile.html"><i class="flaticon-user"></i>Profile</a></li>
-                                <li><a href="#"><i class="flaticon-message"></i>Inbox</a></li>
-                                <li><a href="#"><i class="flaticon-document"></i>Activity</a></li>
+                                <li><a href="{{route('profile',current_user())}}"><i class="flaticon-user"></i>Profile</a></li>
+
                             </ul>
                             <ul>
                                 <li><a href="#"><i class="flaticon-settings"></i>Setting</a></li>
-                                <li><a href="signup.html"><i class="flaticon-unlock"></i>Sing out</a></li>
+                                <li>
+                                    <a
+                                        ref="{{ route('logout') }}"
+                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                                    >
+                                        <i class="flaticon-unlock"></i>Sign Out
+                                    </a>
+                                </li>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
                             </ul>
                         </div>
                     </div>
@@ -588,22 +429,24 @@
                                 </div>
                                 <div class="frnd-search-inner custom-scroll">
                                     <ul>
-                                        <li class="d-flex align-items-center profile-active">
-                                            <!-- profile picture end -->
-                                            <div class="profile-thumb active">
-                                                <a href="#">
-                                                    <figure class="profile-thumb-small">
-                                                        <img src="user/images/profile/profile-small-1.jpg" alt="profile picture">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                            <!-- profile picture end -->
+                                        @foreach(current_user()->follows as $following)
+                                            <li onclick="messageDock('{{$following->profile_img}}', '{{$following->name}}', '{{$following->id}}')" class="d-flex align-items-center profile-active">
+                                                <!-- profile picture end -->
+                                                <div class="profile-thumb active">
+                                                    <a href="#">
+                                                        <figure class="profile-thumb-small">
+                                                            <img src="{{asset('user/images/profile/')}}/{{$following->profile_img}}" alt="profile picture">
+                                                        </figure>
+                                                    </a>
+                                                </div>
+                                                <!-- profile picture end -->
 
-                                            <div class="posted-author">
-                                                <h6 class="author">Jon Wilime</h6>
-                                                <p>Many desktop publishing</p>
-                                            </div>
-                                        </li>
+                                                <div class="posted-author">
+                                                    <h6 class="author">{{$following->name}}</h6>
+                                                    <p>{{$following->bio}}</p>
+                                                </div>
+                                            </li>
+                                        @endforeach
 
                                     </ul>
                                 </div>
@@ -616,12 +459,12 @@
                                 <div class="active-profiles-wrapper">
                                     <div class="active-profile-carousel slick-row-20 slick-arrow-style">
                                         <!-- profile picture end -->
-                                        @foreach(auth()->user()->follows as $user)
+                                        @foreach(auth()->user()->follows as $following)
                                         <div class="single-slide">
                                             <div class="profile-thumb active profile-active">
-                                                <a href="#">
+                                                <a onclick="messageDock('{{$following->profile_img}}', '{{$following->name}}', '{{$following->id}}')" href="#">
                                                     <figure class="profile-thumb-small">
-                                                        <img src="{{asset("user/images/profile")}}/{{$user->profile_img}}" alt="profile picture">
+                                                        <img src="{{asset("user/images/profile")}}/{{$following->profile_img}}" alt="profile picture">
                                                     </figure>
                                                 </a>
                                             </div>
@@ -646,16 +489,16 @@
                                     <div class="live-chat-title">
                                         <!-- profile picture end -->
                                         <div class="profile-thumb active">
-                                            <a href="#">
+                                            <a>
                                                 <figure class="profile-thumb-small">
-                                                    <img src="user/images/profile/profile-small-15.jpg" alt="profile picture">
+                                                    <img id="chatbox_img" src="" alt="profile picture">
                                                 </figure>
                                             </a>
                                         </div>
                                         <!-- profile picture end -->
                                         <div class="posted-author">
-                                            <h6 class="author"><a href="profile.html">Robart Marloyan</a></h6>
-                                            <span class="active-pro">active now</span>
+                                            <h6 style="color: white" id="chatbox_name" class="author"><a>Default name</a></h6>
+                                            <span class="active-pro">Online</span>
                                         </div>
                                         <div class="live-chat-settings ml-auto">
                                             <button class="chat-settings"><i class="flaticon-settings"></i></button>
@@ -663,31 +506,8 @@
                                         </div>
                                     </div>
                                     <div class="message-list-inner">
-                                        <ul class="message-list custom-scroll">
-                                            <li class="text-friends">
-                                                <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text</p>
-                                                <div class="message-time">10 minute ago</div>
-                                            </li>
-                                            <li class="text-author">
-                                                <p>Many desktop publishing packages and web page editors</p>
-                                                <div class="message-time">5 minute ago</div>
-                                            </li>
-                                            <li class="text-friends">
-                                                <p>packages and web page editors </p>
-                                                <div class="message-time">2 minute ago</div>
-                                            </li>
-                                            <li class="text-friends">
-                                                <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text</p>
-                                                <div class="message-time">10 minute ago</div>
-                                            </li>
-                                            <li class="text-author">
-                                                <p>Many desktop publishing packages and web page editors</p>
-                                                <div class="message-time">5 minute ago</div>
-                                            </li>
-                                            <li class="text-friends">
-                                                <p>packages and web page editors </p>
-                                                <div class="message-time">2 minute ago</div>
-                                            </li>
+                                        <ul id="chatbox_replies" class="message-list custom-scroll">
+
                                         </ul>
                                     </div>
                                 </div>
@@ -718,12 +538,12 @@
                         <div class="card card-small mb-0 active-profile-mob-wrapper">
                             <div class="active-profiles-mob-wrapper slick-row-10">
                                 <div class="active-profile-mobile">
-                                    @foreach(auth()->user()->follows as $user)
-                                        <div class="single-slide">
+                                    @foreach(auth()->user()->follows as $following)
+                                        <div  class="single-slide">
                                             <div class="profile-thumb active profile-active">
-                                                <a href="#">
+                                                <a onclick="messageDock('{{$following->profile_img}}', '{{$following->name}}', '{{$following->id}}')" >
                                                     <figure class="profile-thumb-small">
-                                                        <img src="{{asset("user/images/profile")}}/{{$user->profile_img}}" alt="profile picture">
+                                                        <img src="{{asset("user/images/profile")}}/{{$following->profile_img}}" alt="profile picture">
                                                     </figure>
                                                 </a>
                                             </div>
@@ -800,6 +620,14 @@
 <script>
     function follow_user(user_id){
         try{
+            var follow_icon = document.getElementById('follow_user_icon_'+user_id);
+            follow_icon.classList.remove('fa-user-plus');
+            follow_icon.classList.add('fa-user-check');
+        }
+        catch (err){
+            console.log('...');
+        }
+        try{
             if(document.getElementById('follow_button').innerText=="Follow"){
                 document.getElementById('follow_button').innerText="Unfollow";
             }
@@ -821,6 +649,26 @@
                 console.log(data)
             }
         });
+
+    }
+</script>
+
+<script>
+
+    function messageDock(prof_img, name, id){
+        document.getElementById('chatbox_name').innerText=name;
+        document.getElementById('chatbox_img').src='{{asset('user/images/profile/')}}'+'/'+prof_img;
+
+        var html = '<li class="text-friends"><p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text</p> <div class="message-time">10 minute ago</div> </li>';
+
+
+        for(var i=0; i<5; ++i){
+            html+='<li class="text-friends"><p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text</p> <div class="message-time">'+Math.random()+'</div> </li>';
+            html+='<li class="text-author"><p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text</p> <div class="message-time">'+Math.random()+'</div> </li>';
+        }
+
+
+        document.getElementById('chatbox_replies').innerHTML=html;
 
     }
 </script>

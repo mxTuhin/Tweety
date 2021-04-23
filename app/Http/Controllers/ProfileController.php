@@ -98,9 +98,29 @@ class ProfileController extends Controller
         else{
             return view('profiles.show', compact('user'));
         }
+    }
 
+    public function about(User $user){
+        $ids=\auth()->user()->follows()->pluck('id');
+        $ids->push(\auth()->user()->id);
 
+        $id_array=array();
+        foreach ($ids as $id){
+            array_push($id_array, $id);
+        }
 
+        $user_list=User::all()->except($id_array);
+        $advertisement=Advertisement::all();
+        return view('profiles.about', [
+            'user_list'=>$user_list,
+            'advertises'=>$advertisement,
+            'user'=>$user
+        ]);
+    }
 
+    public function friends(User $user){
+        return view('profiles.friends',[
+            'user'=>$user
+        ]);
     }
 }

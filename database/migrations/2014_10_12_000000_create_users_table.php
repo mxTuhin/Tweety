@@ -24,10 +24,19 @@ class CreateUsersTable extends Migration
             $table->string("country");
             $table->string("profile_img");
             $table->string('bio')->nullable();
-            $table->string('cover_photo')->nullable();
+            $table->string('cover_photo')->default('defaultCover.png');
             $table->string('workplace')->nullable();
             $table->string('home')->nullable();
-            $table->string('hobby')->nullable();
+            $table->text('hobby')->nullable();
+            $table->string('institution')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('twitter');
+            $table->string('flickr');
+            $table->string('github');
+            $table->longText('about');
+            $table->string('cellnum');
+            $table->string('address');
+
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });

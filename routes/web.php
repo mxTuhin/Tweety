@@ -28,7 +28,7 @@ Route::middleware('auth')->group(function (){
     Route::post('/add_like', [\App\Http\Controllers\TweetController::class, 'add_like'])->name('add_like');
 
 
-    Route::get('/profile/{user:name}/edit', 'ProfileController@edit')->name('editProfile');
+    Route::get('/profile/{user:username}/edit', 'ProfileController@edit')->name('editProfile');
 
     //Follow Controller
     Route::post('/follow_user', 'FollowController@store')->name('follow_user');
@@ -38,7 +38,13 @@ Route::middleware('auth')->group(function (){
 
 Route::get('/timeline', 'HomeController@timeline')->name('timeline_user');
 
-Route::get('/profile/{user:name}', 'ProfileController@show')->name('profile');
+Route::get('/profile/{user:username}', 'ProfileController@show')->name('profile');
+Route::get('/profile/{user:username}/about', 'ProfileController@about')->name('about');
+Route::get('/profile/{user:username}/friends', 'ProfileController@friends')->name('friends');
+Route::get('/profile/{user:username}/photos', 'ProfileController@about')->name('photos');
+
+
+
 
 Route::post('/signup', 'ProfileController@store')->name('store_user');
 Route::post('/user_login', 'ProfileController@login')->name('login_user');

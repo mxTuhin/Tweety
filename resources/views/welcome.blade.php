@@ -25,9 +25,9 @@
 
                         <div class="col-md-6">
                             <select class="nice-select" name="gender">
-                                <option value="trending" disabled selected>Gender</option>
-                                <option value="sales">Male</option>
-                                <option value="sales">Female</option>
+                                <option value="NotSelected" disabled selected>Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
                             </select>
                         </div>
                         <div class="col-md-6">
