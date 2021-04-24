@@ -409,6 +409,15 @@
     <i class="bi bi-finger-index"></i>
 </div>
 <!-- Scroll to Top End -->
+<?php
+if(current_user()->conversations->count()<=0){
+    $con=current_user()->revConversations;
+}
+else{
+    $con=current_user()->conversations;
+}
+?>
+
 
 <!-- footer area start -->
 <footer class="d-none d-lg-block">
@@ -432,7 +441,7 @@
                                 </div>
                                 <div class="frnd-search-inner custom-scroll">
                                     <ul>
-                                        @foreach(current_user()->follows as $following)
+                                        @foreach($con as $following)
                                             <li onclick="messageDock('{{$following->profile_img}}', '{{$following->name}}', '{{$following->id}}')" class="d-flex align-items-center profile-active">
                                                 <!-- profile picture end -->
                                                 <div class="profile-thumb active">
@@ -462,7 +471,7 @@
                                 <div class="active-profiles-wrapper">
                                     <div class="active-profile-carousel slick-row-20 slick-arrow-style">
                                         <!-- profile picture end -->
-                                        @foreach(auth()->user()->follows as $following)
+                                        @foreach($con as $following)
                                         <div class="single-slide">
                                             <div class="profile-thumb active profile-active">
                                                 <a onclick="messageDock('{{$following->profile_img}}', '{{$following->name}}', '{{$following->id}}')" href="#">
@@ -541,7 +550,7 @@
                         <div class="card card-small mb-0 active-profile-mob-wrapper">
                             <div class="active-profiles-mob-wrapper slick-row-10">
                                 <div class="active-profile-mobile">
-                                    @foreach(auth()->user()->follows as $following)
+                                    @foreach($con as $following)
                                         <div  class="single-slide">
                                             <div class="profile-thumb active profile-active">
                                                 <a onclick="messageDock('{{$following->profile_img}}', '{{$following->name}}', '{{$following->id}}')" >

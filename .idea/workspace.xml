@@ -5,25 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7a204413-de8a-4ad8-9258-0e058ce014df" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/OpinionController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Opinion.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_04_24_173031_create_opinions_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Conversation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/ConversationController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_04_25_014628_create_conversations_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FollowController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FollowController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ToDoListController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ToDoListController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TweetController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TweetController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ToDoList.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/ToDoList.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Tweet.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Tweet.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_16_193206_create_to_do_lists_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_04_16_193206_create_to_do_lists_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_23_160136_create_galleries_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_04_23_160136_create_galleries_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/_angry-tweets.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/_angry-tweets.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/_friends-list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/_friends-list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/_timeline.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/_timeline.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profiles/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profiles/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/to_do_list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/to_do_list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -448,7 +435,7 @@
       <workItem from="1618642041232" duration="11736000" />
       <workItem from="1619117629897" duration="1454000" />
       <workItem from="1619157520470" duration="17369000" />
-      <workItem from="1619260733430" duration="15357000" />
+      <workItem from="1619260733430" duration="20912000" />
     </task>
     <servers />
   </component>
