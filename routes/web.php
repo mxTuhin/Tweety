@@ -32,6 +32,7 @@ Route::middleware('auth')->group(function (){
 
     //Follow Controller
     Route::post('/follow_user', 'FollowController@store')->name('follow_user');
+    Route::post('/send_anger', [\App\Http\Controllers\FollowController::class, 'send_anger'])->name('send_anger');
 
 
 });
@@ -43,6 +44,9 @@ Route::get('/profile/{user:username}/about', 'ProfileController@about')->name('a
 Route::get('/profile/{user:username}/friends', 'ProfileController@friends')->name('friends');
 Route::get('/profile/{user:username}/photos', 'ProfileController@photos')->name('photos');
 
+Route::post('/add_opinion', [\App\Http\Controllers\OpinionController::class, 'store'])->name('add_opinion');
+Route::post('/opinion_like', [\App\Http\Controllers\OpinionController::class, 'opinion_like'])->name('opinion_like');
+
 
 
 
@@ -50,6 +54,10 @@ Route::post('/signup', 'ProfileController@store')->name('store_user');
 Route::post('/user_login', 'ProfileController@login')->name('login_user');
 
 Route::get('/profile/sweet_memories/{img}', [\App\Http\Controllers\SweetMemoriesController::class, 'add_memory'])->name('add_sweet_memory');
+
+Route::post('/timeline/upload_todo', [\App\Http\Controllers\ToDoListController::class, 'store'])->name('store_todo_list');
+Route::get('/timeline/close_todo/{id}', [\App\Http\Controllers\ToDoListController::class, 'delete'])->name('close_todo_list');
+
 
 
 

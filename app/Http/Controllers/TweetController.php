@@ -36,11 +36,14 @@ class TweetController extends Controller
             'body'=>\request('body'),
             'image'=>$new_name
         ]);
-        Gallery::create([
-           'user_id'=>auth()->id(),
-           'img_tag'=>"tweet",
-           'img'=>$new_name
-        ]);
+        if($new_name !=""){
+            Gallery::create([
+                'user_id'=>auth()->id(),
+                'img_tag'=>"tweet",
+                'img'=>$new_name
+            ]);
+        }
+
         return redirect()->route('timeline_user');
     }
     public function add_like(){

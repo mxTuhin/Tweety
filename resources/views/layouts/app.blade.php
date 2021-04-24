@@ -124,6 +124,9 @@
                 height: 500px
             }
         }
+        .comment_section{
+            display: none;
+        }
     </style>
 
 </head>
@@ -286,17 +289,17 @@
                                     </div>
                                     <div class="profile-body">
                                         <ul>
-                                            <li><a href="{{route('profile',current_user())}}"><i class="flaticon-user"></i>Profile</a></li>
+                                            <li><a href="{{route('profile',current_user())}}"><i class="fas fa-user"></i>Profile</a></li>
 
                                         </ul>
                                         <ul>
-                                            <li><a href="#"><i class="flaticon-settings"></i>Setting</a></li>
+                                            <li><a href="#"><i class="fas fa-user-cog"></i>Setting</a></li>
                                             <li>
                                                 <a
                                                     ref="{{ route('logout') }}"
                                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
                                                 >
-                                                    <i class="flaticon-unlock"></i>Sign Out
+                                                    <i class="fas fa-unlock-alt"></i>Sign Out
                                                 </a>
                                             </li>
 
@@ -367,17 +370,17 @@
                         </div>
                         <div class="profile-body">
                             <ul>
-                                <li><a href="{{route('profile',current_user())}}"><i class="flaticon-user"></i>Profile</a></li>
+                                <li><a href="{{route('profile',current_user())}}"><i class="fas fa-user"></i>Profile</a></li>
 
                             </ul>
                             <ul>
-                                <li><a href="#"><i class="flaticon-settings"></i>Setting</a></li>
+                                <li><a href="#"><i class="fas fa-user-cog"></i>Setting</a></li>
                                 <li>
                                     <a
                                         ref="{{ route('logout') }}"
                                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
                                     >
-                                        <i class="flaticon-unlock"></i>Sign Out
+                                        <i class="fas fa-unlock-alt"></i>Sign Out
                                     </a>
                                 </li>
 
@@ -587,6 +590,7 @@
 <script src="{{asset('user/js/plugins/isotope.pkgd.min.js')}}"></script>
 <!-- Main JS -->
 <script src="{{asset('user/js/main.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script type="text/javascript">
     $.ajaxSetup({
         headers: {
@@ -670,6 +674,88 @@
 
         document.getElementById('chatbox_replies').innerHTML=html;
 
+    }
+</script>
+
+<script>
+    function send_anger(id, name){
+        $.ajax({
+            type : 'post',
+            url : '{{URL::to(route('send_anger'))}}',
+            data:{
+                id: id
+            },
+            success:function(data){
+                console.log(data)
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: name+' Has been notified with Angry Vibe',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            }
+        });
+
+    }
+</script>
+
+<script>
+    var display=false;
+    function show_comment(id){
+        if(display==false){
+            document.getElementById("comment_section_"+id).style.display="block";
+            display=true;
+        }
+        else{
+            document.getElementById("comment_section_"+id).style.display="none";
+            display=false;
+        }
+
+    }
+</script>
+
+<script>
+    function add_opinion(id, opinion){
+
+
+        if(event.key === 'Enter') {
+            event.preventDefault();
+            $.ajax({
+                type : 'post',
+                url : '{{URL::to(route('add_opinion'))}}',
+                data:{
+                    id: id,
+                    opinion:opinion.value
+                },
+                success:function(data){
+                    document.getElementById("comment_box_"+id).innerHTML += data;
+                    console.log(opinion.value);
+                    document.getElementById("opinion_input_"+id).value="";
+                    var opinion_count=document.getElementById("tweet_opinion_count_"+id).innerText;
+                    document.getElementById("tweet_opinion_count_"+id).innerText = parseInt(opinion_count)+1;
+                }
+            });
+
+        }
+    }
+</script>
+
+<script>
+    function opinion_like(id){
+        var like_counter = document.getElementById("opinion_like_count_"+id).innerText;
+        document.getElementById("opinion_like_count_"+id).innerText = parseInt(like_counter)+1;
+        $.ajax({
+            type : 'post',
+            url : '{{URL::to(route('opinion_like'))}}',
+            data:{
+                id: id
+            },
+            success:function(data){
+                console.log(data)
+
+            }
+        });
     }
 </script>
 

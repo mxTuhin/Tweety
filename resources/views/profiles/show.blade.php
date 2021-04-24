@@ -77,7 +77,10 @@
             </div>
 
             <div class="col-lg-6 order-1 order-lg-2">
-                @include('_publish-tweet-panel')
+                @if(current_user()->is($user))
+                    @include('_publish-tweet-panel')
+                @endif
+
                 @foreach($user->tweets as $tweet)
                     @include('_angry-tweets')
                 @endforeach
@@ -85,17 +88,29 @@
 
             <div class="col-lg-3 order-3">
                 <aside class="widget-area">
+                    @if(current_user()->is($user))
                     <!-- widget single item start -->
                     <div class="card widget-item">
                         <h4 class="widget-title">To Do List</h4>
                         <div class="widget-body">
                             <ul class="like-page-list-wrapper">
-
+                                @foreach(auth()->user()->to_do_list as $list)
+                                    @include('to_do_list')
+                                @endforeach
 
                             </ul>
                         </div>
+                        <hr>
+                        <div class="widget-item">
+                            <form action="{{route('store_todo_list')}}" method="POST">
+                                @csrf
+                                <input id="todo_list_input" class="form-control" name="todo_list" placeholder="Type ToDo Work and Press Enter">
+                            </form>
+                        </div>
+
                     </div>
                     <!-- widget single item end -->
+                    @endif
 
                     <!-- widget single item start -->
                     <div class="card widget-item">

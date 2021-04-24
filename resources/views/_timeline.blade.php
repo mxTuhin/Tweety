@@ -99,6 +99,14 @@
 
                                 </ul>
                             </div>
+                            <hr>
+                            <div class="widget-item">
+                                <form action="{{route('store_todo_list')}}" method="POST">
+                                    @csrf
+                                    <input id="todo_list_input" class="form-control" name="todo_list" placeholder="Type ToDo Work and Press Enter">
+                                </form>
+                            </div>
+
                         </div>
 
                         <!-- widget single item end -->

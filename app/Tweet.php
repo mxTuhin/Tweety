@@ -11,4 +11,8 @@ class Tweet extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+
+    public function opinions(){
+        return $this->hasMany(Opinion::class);
+    }
 }

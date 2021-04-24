@@ -85,7 +85,7 @@ class User extends Authenticatable
     }
 
     public function to_do_list(){
-        return $this->hasMany(ToDoList::class)->latest();
+        return $this->hasMany(ToDoList::class)->latest()->where('status', '=', 'active')->limit(5);
     }
 
 
