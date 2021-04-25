@@ -49,11 +49,12 @@ class User extends Authenticatable
         return "https://i.pravatar.cc/40?";
     }
     public function follow(User $user){
+        $this->follows()->save($user);
         $con = new Conversation();
         $con->user_id=current_user()->id;
         $con->friend_id=$user->id;
         $con->save();
-        return $this->follows()->save($user);
+        return "meow";
 
     }
 
@@ -98,19 +99,15 @@ class User extends Authenticatable
     public function following(User $user){
         return $this->follows->contains($user);
     }
-    public function ConOne(){
-        return $this->hasMany(Conversation::class);
-    }
-    public function ConTwo(){
-        return $this->hasMany(Conversation::class, 'friend_id')->latest();
-    }
 
     public function conversations(){
-        return $this->belongsToMany(User::class, 'conversations', 'user_id', 'friend_id');
+//        return $this->belongsToMany(User::class, 'conversations', 'user_id', 'friend_id');
+        return $this->hasMany(Conversation::class, 'user_id');
 //        return $this->ConOne->merge($this->ConTwo);
     }
     public function revConversations(){
-        return $this->belongsToMany(User::class, 'conversations', 'friend_id', 'user_id');
+//        return $this->belongsToMany(User::class, 'conversations', 'friend_id', 'user_id');
+        return $this->hasMany(Conversation::class, 'friend_id');
 //        return $this->ConOne->merge($this->ConTwo);
     }
 

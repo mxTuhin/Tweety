@@ -54,8 +54,8 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-3 col-md-3">
-                        <div class="profile-picture-box">
-                            <figure class="profile-picture">
+                        <div  class="profile-picture-box">
+                            <figure  class="profile-picture">
                                 <a href="{{route('profile',$user)}}">
                                     <img id="large_profile_img_custom" src="{{asset("user/images/profile")}}/{{$user->profile_img}}" alt="profile picture">
                                 </a>

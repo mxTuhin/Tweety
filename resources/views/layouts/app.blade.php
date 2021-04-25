@@ -412,9 +412,11 @@
 <?php
 if(current_user()->conversations->count()<=0){
     $con=current_user()->revConversations;
+    $bool=false;
 }
 else{
     $con=current_user()->conversations;
+    $bool=true;
 }
 ?>
 
@@ -441,24 +443,34 @@ else{
                                 </div>
                                 <div class="frnd-search-inner custom-scroll">
                                     <ul>
-                                        @foreach($con as $following)
-                                            <li onclick="messageDock('{{$following->profile_img}}', '{{$following->name}}', '{{$following->id}}')" class="d-flex align-items-center profile-active">
+                                        <?php
+                                        foreach($con as $conversation){
+                                        if($bool==true){
+                                            $convo=$conversation->friend;
+                                        }
+                                        else{
+                                            $convo=$conversation->user;
+                                        }
+                                        ?>
+                                            <li onclick="messageDock('{{$convo->profile_img}}', '{{$convo->name}}', '{{$conversation->id}}', '{{$convo->id}}')" class="d-flex align-items-center profile-active">
                                                 <!-- profile picture end -->
                                                 <div class="profile-thumb active">
                                                     <a href="#">
                                                         <figure class="profile-thumb-small">
-                                                            <img src="{{asset('user/images/profile/')}}/{{$following->profile_img}}" alt="profile picture">
+                                                            <img src="{{asset('user/images/profile/')}}/{{$convo->profile_img}}" alt="profile picture">
                                                         </figure>
                                                     </a>
                                                 </div>
                                                 <!-- profile picture end -->
 
                                                 <div class="posted-author">
-                                                    <h6 class="author">{{$following->name}}</h6>
-                                                    <p>{{$following->bio}}</p>
+                                                    <h6 class="author">{{$convo->name}}</h6>
+                                                    <p>{{$convo->bio}}</p>
                                                 </div>
                                             </li>
-                                        @endforeach
+                                            <?php
+                                            }
+                                            ?>
 
                                     </ul>
                                 </div>
@@ -470,19 +482,32 @@ else{
 
                                 <div class="active-profiles-wrapper">
                                     <div class="active-profile-carousel slick-row-20 slick-arrow-style">
-                                        <!-- profile picture end -->
-                                        @foreach($con as $following)
-                                        <div class="single-slide">
-                                            <div class="profile-thumb active profile-active">
-                                                <a onclick="messageDock('{{$following->profile_img}}', '{{$following->name}}', '{{$following->id}}')" href="#">
-                                                    <figure class="profile-thumb-small">
-                                                        <img src="{{asset("user/images/profile")}}/{{$following->profile_img}}" alt="profile picture">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- profile picture end -->
-                                        @endforeach
+
+
+                                            <?php
+                                            foreach($con as $conversation){
+                                            if($bool==true){
+                                                $convo=$conversation->friend;
+                                            }
+                                            else{
+                                                $convo=$conversation->user;
+                                            }
+                                            ?>
+                                                <!-- profile picture end -->
+                                                <div class="single-slide">
+                                                    <div class="profile-thumb active profile-active">
+                                                        <a onclick="messageDock('{{$convo->profile_img}}', '{{$convo->name}}', '{{$conversation->id}}', '{{$convo->id}}')" href="#">
+                                                            <figure class="profile-thumb-small">
+                                                                <img src="{{asset("user/images/profile")}}/{{$convo->profile_img}}" alt="profile picture">
+                                                            </figure>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <!-- profile picture end -->
+                                            <?php
+                                            }
+                                            ?>
+
 
                                     </div>
                                 </div>
@@ -492,9 +517,9 @@ else{
                         <div class="footer-card position-relative">
                             <div class="live-chat-inner">
                                 <div class="chat-text-field">
-                                    <textarea class="live-chat-field custom-scroll" placeholder="Text Message"></textarea>
-                                    <button class="chat-message-send" type="submit" value="submit">
-                                        <img src="user/images/icons/plane.png" alt="">
+                                    <textarea onkeydown="send_message_reply('input')" id="message_area_box" class="live-chat-field custom-scroll" placeholder="Text Message"></textarea>
+                                    <button onclick="send_message_reply('button')" type="button">
+                                        <img src="{{asset('user/images/icons/plane.png')}}" alt="">
                                     </button>
                                 </div>
                                 <div class="chat-output-box">
@@ -550,18 +575,29 @@ else{
                         <div class="card card-small mb-0 active-profile-mob-wrapper">
                             <div class="active-profiles-mob-wrapper slick-row-10">
                                 <div class="active-profile-mobile">
-                                    @foreach($con as $following)
-                                        <div  class="single-slide">
-                                            <div class="profile-thumb active profile-active">
-                                                <a onclick="messageDock('{{$following->profile_img}}', '{{$following->name}}', '{{$following->id}}')" >
-                                                    <figure class="profile-thumb-small">
-                                                        <img src="{{asset("user/images/profile")}}/{{$following->profile_img}}" alt="profile picture">
-                                                    </figure>
-                                                </a>
-                                            </div>
+                                <?php
+                                foreach($con as $conversation){
+                                if($bool==true){
+                                    $convo=$conversation->friend;
+                                }
+                                else{
+                                    $convo=$conversation->user;
+                                }
+                                ?>
+                                <!-- profile picture end -->
+                                    <div class="single-slide">
+                                        <div class="profile-thumb active profile-active">
+                                            <a onclick="messageDock('{{$convo->profile_img}}', '{{$convo->name}}', '{{$conversation->id}}', '{{$convo->id}}')" href="#">
+                                                <figure class="profile-thumb-small">
+                                                    <img src="{{asset("user/images/profile")}}/{{$convo->profile_img}}" alt="profile picture">
+                                                </figure>
+                                            </a>
                                         </div>
-                                        <!-- profile picture end -->
-                                    @endforeach
+                                    </div>
+                                    <!-- profile picture end -->
+                                    <?php
+                                    }
+                                    ?>
                                 </div>
                             </div>
                         </div>
@@ -610,6 +646,8 @@ else{
 
 
 <script>
+    var global_message_user;
+    var global_chat_user_id;
     function add_like(_id){
         var like=document.getElementById('like_count'+_id).innerText;
         var like_counter=parseInt(like);
@@ -665,23 +703,107 @@ else{
 
     }
 </script>
+{{--<script>--}}
+{{--    window.setInterval(function() {--}}
+{{--        $.ajax({--}}
+{{--            type : 'post',--}}
+{{--            url : '{{URL::to(route('fetch_msg'))}}',--}}
+{{--            data:{--}}
+{{--                id: global_message_user--}}
+{{--            },--}}
+{{--            success:function(data){--}}
+{{--                --}}
+{{--                document.getElementById('chatbox_replies').innerHTML=data;--}}
+{{--                if(data!=""){--}}
+{{--                    var elem = document.getElementById('chatbox_replies');--}}
+{{--                    elem.scrollTop = elem.scrollHeight;--}}
+{{--                }--}}
+
+
+{{--            }--}}
+{{--        });--}}
+{{--    }, 1000);--}}
+{{--</script>--}}
 
 <script>
 
-    function messageDock(prof_img, name, id){
+    function messageDock(prof_img, name, id, chat_user_id){
+        global_message_user=id;
+        global_chat_user_id=chat_user_id;
+        console.log(global_message_user);
+        console.log(global_chat_user_id);
         document.getElementById('chatbox_name').innerText=name;
         document.getElementById('chatbox_img').src='{{asset('user/images/profile/')}}'+'/'+prof_img;
 
-        var html = '<li class="text-friends"><p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text</p> <div class="message-time">10 minute ago</div> </li>';
+        $.ajax({
+            type : 'post',
+            url : '{{URL::to(route('fetch_msg'))}}',
+            data:{
+                id: id
+            },
+            success:function(data){
+                console.log(data)
+                document.getElementById('chatbox_replies').innerHTML=data;
+                var elem = document.getElementById('chatbox_replies');
+                elem.scrollTop = elem.scrollHeight;
+
+            }
+        });
 
 
-        for(var i=0; i<5; ++i){
-            html+='<li class="text-friends"><p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text</p> <div class="message-time">'+Math.random()+'</div> </li>';
-            html+='<li class="text-author"><p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text</p> <div class="message-time">'+Math.random()+'</div> </li>';
+
+        // for(var i=0; i<5; ++i){
+        //     html+='<li class="text-friends"><p>Friend Msg</p> <div class="message-time">Created At</div> </li>';
+        //     html+='<li class="text-author"><p>Self Message</p> <div class="message-time">Created</div> </li>';
+        // }
+
+
+
+
+    }
+</script>
+
+<script>
+    function send_message_reply(identifier){
+        if(identifier=='button'){
+            box_module();
         }
 
 
-        document.getElementById('chatbox_replies').innerHTML=html;
+        if(event.key === 'Enter' && event.shiftKey) {
+
+        }else if(event.key==='Enter'){
+            box_module();
+        }
+
+        var elem = document.getElementById('chatbox_replies');
+        elem.scrollTop = elem.scrollHeight;
+
+
+    }
+
+    function box_module(){
+        event.preventDefault();
+        var msg=document.getElementById("message_area_box").value;
+        var html = '<li class="text-author"><p>'+msg+'</p> <div class="message-time">Just Now</div> </li>';
+        document.getElementById('chatbox_replies').innerHTML+=html;
+        document.getElementById("message_area_box").value="";
+        $.ajax({
+            type : 'post',
+            url : '{{URL::to(route('store_msg'))}}',
+            data:{
+                id: global_message_user,
+                msg:msg,
+                chat_user_id:global_chat_user_id,
+
+
+            },
+            success:function(data){
+                console.log(data)
+
+            }
+        });
+
 
     }
 </script>

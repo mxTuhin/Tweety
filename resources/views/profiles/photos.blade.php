@@ -36,7 +36,9 @@
                                 <div class="col-sm-6 col-md-4 folder">
                                     <div class="photo-group">
                                         <div class="gallery-toggle">
+                                            @if($user->gallery->count()>0)
                                             <div class="d-none product-thumb-large-view">
+
                                                 @foreach($user->gallery as $img)
                                                     <img src="{{asset('user/images/uploads')}}/{{$img->img}}" alt="Photo Gallery">
                                                 @endforeach
@@ -48,6 +50,7 @@
                                             <div class="photo-gallery-caption">
                                                 <h3 class="photos-caption">User Uploads ({{$user->gallery->count()}})</h3>
                                             </div>
+                                                @endif
                                         </div>
                                     </div>
                                 </div>
@@ -55,7 +58,9 @@
                                 <div class="col-sm-6 col-md-4 folder">
                                     <div class="photo-group">
                                         <div class="gallery-toggle">
+                                            @if($user->sweet_memories->count()>0)
                                             <div class="d-none product-thumb-large-view">
+
                                                 @foreach($user->sweet_memories as $img)
                                                     <img src="{{asset('user/images/uploads')}}/{{$img->img}}" alt="Photo Gallery">
                                                 @endforeach
@@ -67,6 +72,7 @@
                                             <div class="photo-gallery-caption">
                                                 <h3 class="photos-caption">Sweet Memoties ({{$user->sweet_memories->count()}})</h3>
                                             </div>
+                                                @endif
                                         </div>
                                     </div>
                                 </div>

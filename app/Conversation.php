@@ -13,4 +13,8 @@ class Conversation extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+
+    public function chats(){
+        return $this->hasMany(ChatHistory::class);
+    }
 }

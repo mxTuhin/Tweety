@@ -58,6 +58,10 @@ Route::get('/profile/sweet_memories/{img}', [\App\Http\Controllers\SweetMemories
 Route::post('/timeline/upload_todo', [\App\Http\Controllers\ToDoListController::class, 'store'])->name('store_todo_list');
 Route::get('/timeline/close_todo/{id}', [\App\Http\Controllers\ToDoListController::class, 'delete'])->name('close_todo_list');
 
+Route::post('/fetch_msg', [\App\Http\Controllers\ChatHistoryController::class, 'fetch'])->name('fetch_msg');
+Route::post('/store_msg', [\App\Http\Controllers\ChatHistoryController::class, 'store'])->name('store_msg');
+
+
 
 
 
