@@ -30,12 +30,12 @@ class CreateUsersTable extends Migration
             $table->text('hobby')->nullable();
             $table->string('institution')->nullable();
             $table->string('facebook')->nullable();
-            $table->string('twitter');
-            $table->string('flickr');
-            $table->string('github');
-            $table->longText('about');
-            $table->string('cellnum');
-            $table->string('address');
+            $table->string('twitter')->nullable();
+            $table->string('flickr')->nullable();
+            $table->string('github')->nullable();
+            $table->longText('about')->nullable();
+            $table->string('cellnum')->nullable();
+            $table->string('address')->nullable();
 
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));

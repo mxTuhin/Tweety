@@ -66,7 +66,7 @@
 
                                             <div class="unorder-list-info">
                                                 <h3 class="list-title"><a href="{{$news->link}}" target="_blank">{{$news->title}}</a></h3>
-                                                <p class="list-subtitle">{{$news->created_at->diffForHumans()}}</p>
+                                                <p class="list-subtitle">{{ date('h:i:s a m/d/Y', strtotime($news->created_at))}}</p>
                                             </div>
                                         </li>
                                     @endforeach

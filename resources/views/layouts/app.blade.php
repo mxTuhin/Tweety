@@ -144,89 +144,7 @@
                         <nav>
                             <ul>
                                 <li class="active"><a href="{{route('timeline_user')}}">home</a></li>
-                                <li class="msg-trigger"><a class="msg-trigger-btn" href="#a">message</a>
-                                    <div class="message-dropdown" id="a">
-                                        <div class="dropdown-title">
-                                            <p class="recent-msg">recent message</p>
-                                            <div class="message-btn-group">
-                                                <button>New group</button>
-                                                <button>New Message</button>
-                                            </div>
-                                        </div>
-                                        <ul class="dropdown-msg-list">
-                                            <li class="msg-list-item d-flex justify-content-between">
-                                                <!-- profile picture end -->
-                                                <div class="profile-thumb">
-                                                    <figure class="profile-thumb-middle">
-                                                        <img src="user/images/profile/profile-small-3.jpg" alt="profile picture">
-                                                    </figure>
-                                                </div>
-                                                <!-- profile picture end -->
 
-                                                <!-- message content start -->
-                                                <div class="msg-content">
-                                                    <h6 class="author"><a href="profile.html">Mili Raoulin</a></h6>
-                                                    <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default</p>
-                                                </div>
-                                                <!-- message content end -->
-
-                                                <!-- message time start -->
-                                                <div class="msg-time">
-                                                    <p>25 Apr 2019</p>
-                                                </div>
-                                                <!-- message time end -->
-                                            </li>
-                                            <li class="msg-list-item d-flex justify-content-between">
-                                                <!-- profile picture end -->
-                                                <div class="profile-thumb">
-                                                    <figure class="profile-thumb-middle">
-                                                        <img src="user/images/profile/profile-small-4.jpg" alt="profile picture">
-                                                    </figure>
-                                                </div>
-                                                <!-- profile picture end -->
-
-                                                <!-- message content start -->
-                                                <div class="msg-content">
-                                                    <h6 class="author"><a href="profile.html">Jhon Doe</a></h6>
-                                                    <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default</p>
-                                                </div>
-                                                <!-- message content end -->
-
-                                                <!-- message time start -->
-                                                <div class="msg-time">
-                                                    <p>15 May 2019</p>
-                                                </div>
-                                                <!-- message time end -->
-                                            </li>
-                                            <li class="msg-list-item d-flex justify-content-between">
-                                                <!-- profile picture end -->
-                                                <div class="profile-thumb">
-                                                    <figure class="profile-thumb-middle">
-                                                        <img src="user/images/profile/profile-small-5.jpg" alt="profile picture">
-                                                    </figure>
-                                                </div>
-                                                <!-- profile picture end -->
-
-                                                <!-- message content start -->
-                                                <div class="msg-content">
-                                                    <h6 class="author"><a href="profile.html">Jon Wileyam</a></h6>
-                                                    <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default</p>
-                                                </div>
-                                                <!-- message content end -->
-
-                                                <!-- message time start -->
-                                                <div class="msg-time">
-                                                    <p>20 Jun 2019</p>
-                                                </div>
-                                                <!-- message time end -->
-                                            </li>
-                                        </ul>
-                                        <div class="msg-dropdown-footer">
-                                            <button>See all in messenger</button>
-                                            <button>Mark All as Read</button>
-                                        </div>
-                                    </div>
-                                </li>
                                 <li class="notification-trigger"><a class="msg-trigger-btn" href="#b">notification</a>
                                     <div class="message-dropdown" id="b">
                                         <div class="dropdown-title">
@@ -703,27 +621,27 @@ else{
 
     }
 </script>
-{{--<script>--}}
-{{--    window.setInterval(function() {--}}
-{{--        $.ajax({--}}
-{{--            type : 'post',--}}
-{{--            url : '{{URL::to(route('fetch_msg'))}}',--}}
-{{--            data:{--}}
-{{--                id: global_message_user--}}
-{{--            },--}}
-{{--            success:function(data){--}}
-{{--                --}}
-{{--                document.getElementById('chatbox_replies').innerHTML=data;--}}
-{{--                if(data!=""){--}}
-{{--                    var elem = document.getElementById('chatbox_replies');--}}
-{{--                    elem.scrollTop = elem.scrollHeight;--}}
-{{--                }--}}
+<script>
+    window.setInterval(function() {
+        $.ajax({
+            type : 'post',
+            url : '{{URL::to(route('fetch_msg'))}}',
+            data:{
+                id: global_message_user
+            },
+            success:function(data){
+
+                document.getElementById('chatbox_replies').innerHTML=data;
+                if(data!=""){
+                    var elem = document.getElementById('chatbox_replies');
+                    elem.scrollTop = elem.scrollHeight;
+                }
 
 
-{{--            }--}}
-{{--        });--}}
-{{--    }, 1000);--}}
-{{--</script>--}}
+            }
+        });
+    }, 1000);
+</script>
 
 <script>
 

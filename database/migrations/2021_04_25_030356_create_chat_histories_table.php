@@ -19,7 +19,7 @@ class CreateChatHistoriesTable extends Migration
             $table->foreignId('conversation_id');
             $table->foreignId('user_id');
             $table->foreignId('chat_user_id');
-            $table->text('msg');
+            $table->text('msg')->nullable();
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
 

@@ -36,7 +36,7 @@
 
         <div class="posted-author">
             <h6 class="author"><a href="{{route('profile',$tweet->user)}}">{{$tweet->user->name}}</a></h6>
-            <p class="list-subtitle">{{$tweet->created_at->diffForHumans()}}</p>
+            <p class="list-subtitle">{{ date('h:i:s a m/d/Y', strtotime($tweet->created_at))}}</p>
 
         </div>
 
@@ -127,7 +127,7 @@
 
                                         </div>
                                         <div style="margin-left: -30px; margin-top: 2px" class="col-6 col-sm-6">
-                                            <p style="font-size: 12px" class="list-subtitle">{{$opinion->created_at->diffForHumans()}}</p>
+                                            <p style="font-size: 12px" class="list-subtitle">{{ date('h:i:s a m/d/Y', strtotime($opinion->created_at))}}</p>
 
                                         </div>
                                     </div>
