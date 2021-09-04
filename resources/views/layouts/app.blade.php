@@ -77,7 +77,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>{{env('APP_NAME')}} | @yield('title')</title>
+    <title>{{config("app.name")}} | @yield('title')</title>
     <meta name="robots" content="noindex, follow" />
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -833,6 +833,37 @@ else{
             url : '{{URL::to(route('delete_tweet'))}}',
             data:{
                 id: id
+            },
+            success:function(data){
+                console.log(data)
+
+            }
+        });
+    }
+</script>
+
+<script>
+    function edit_tweet(id){
+        $("#TweetBody"+id).hide();
+        $("#TweetEditorDiv"+id).show();
+
+    }
+</script>
+
+<script>
+    function update_tweet(id){
+        var body=$("#TweetBody"+id);
+        body.show();
+
+        $("#TweetEditorDiv"+id).hide();
+        var Txt=document.getElementById("TweetEditor"+id).value;
+        document.getElementById("TweetBody"+id).innerText=Txt;
+        $.ajax({
+            type : 'post',
+            url : '{{URL::to(route('edit_tweet'))}}',
+            data:{
+                id: id,
+                txt: Txt
             },
             success:function(data){
                 console.log(data)

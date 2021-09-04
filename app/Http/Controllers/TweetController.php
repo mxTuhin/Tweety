@@ -75,4 +75,10 @@ class TweetController extends Controller
         $tweet->save();
         return Response("success");
     }
+    public function edit(Request $request){
+        $tweet=Tweet::find($request->id);
+        $tweet->body=$request->txt;
+        $tweet->save();
+        return Response("success");
+    }
 }

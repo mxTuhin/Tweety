@@ -45,8 +45,8 @@
             <div class="post-settings arrow-shape">
                 <ul>
 
-                    <li><button>Edit</button></li>
-                    <li><a><button onclick="delete_tweet({{$tweet->id}})">Delete</button></a></li>
+                    <li><button onclick="edit_tweet('{{$tweet->id}}')">Edit</button></li>
+                    <li><a><button onclick="delete_tweet('{{$tweet->id}}')">Delete</button></a></li>
 {{--                    <li><button>Copy</button></li>--}}
 
 
@@ -56,9 +56,15 @@
     </div>
     <!-- post title start -->
     <div class="post-content">
-        <p class="post-desc">
+        <p id="TweetBody{{$tweet->id}}" class="post-desc">
             {{$tweet->body}}
         </p>
+        <div id="TweetEditorDiv{{$tweet->id}}" style="margin-bottom: 50px; display: none">
+            <form>
+                <textarea id="TweetEditor{{$tweet->id}}" class="form-group w-100" type="text"  placeholder="Update Post">{{$tweet->body}}</textarea>
+                <button type="button" style="float: right; border-radius: 20px; padding: 5px" onclick="update_tweet('{{$tweet->id}}')" class="btn-info">Update</button>
+            </form>
+        </div>
         <div class="post-thumb-gallery">
             <figure class="post-thumb img-popup">
                 <a href="{{asset("user/images/uploads")}}/{{$tweet->image}}">
