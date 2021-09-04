@@ -20,6 +20,7 @@ class CreateTweetsTable extends Migration
             $table->string('body')->nullable();
             $table->string('image')->nullable();
             $table->integer('like_count')->default(0);
+            $table->string("status")->default("show");
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
 

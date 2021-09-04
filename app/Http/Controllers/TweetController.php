@@ -69,4 +69,10 @@ class TweetController extends Controller
         }
         return "meow";
     }
+    public function delete(Request $request){
+        $tweet=Tweet::find($request->id);
+        $tweet->status="hide";
+        $tweet->save();
+        return Response("success");
+    }
 }

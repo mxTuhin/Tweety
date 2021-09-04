@@ -81,8 +81,10 @@
                     <!-- share box start -->
                     @include('_publish-tweet-panel')
 
-                        @foreach($tweets as $tweet)
-                            @include('_angry-tweets')
+                        @foreach(auth()->user()->tweets as $tweet)
+                            @if($tweet->status=="show")
+                                @include('_angry-tweets')
+                            @endif
                         @endforeach
 
                 </div>

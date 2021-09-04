@@ -825,6 +825,23 @@ else{
     }
 </script>
 
+<script>
+    function delete_tweet(id){
+        $("#Tweet"+id).remove();
+        $.ajax({
+            type : 'post',
+            url : '{{URL::to(route('delete_tweet'))}}',
+            data:{
+                id: id
+            },
+            success:function(data){
+                console.log(data)
+
+            }
+        });
+    }
+</script>
+
 
 @yield('dashboardJS')
 

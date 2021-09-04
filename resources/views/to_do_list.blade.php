@@ -10,7 +10,7 @@
                 <p class="list-subtitle">{{ date('h:i:s a m/d/Y', strtotime($list->created_at))}}</p>
             </div>
             <div style="margin-left: 200px;">
-                <a onclick="close_todo({{$list->id}})"><b>x</b></a>
+                <a style="cursor: pointer" onclick="close_todo({{$list->id}})"><b>x</b></a>
             </div>
         </div>
 

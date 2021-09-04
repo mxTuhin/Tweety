@@ -21,7 +21,7 @@
 
 
 <!-- post status start -->
-<div class="card">
+<div id="Tweet{{$tweet->id}}" class="card">
     <!-- post title start -->
     <div class="post-title d-flex align-items-center">
         <!-- profile picture end -->
@@ -46,8 +46,8 @@
                 <ul>
 
                     <li><button>Edit</button></li>
-                    <li><a href="#"><button>Delete</button></a></li>
-                    <li><button>Copy</button></li>
+                    <li><a><button onclick="delete_tweet({{$tweet->id}})">Delete</button></a></li>
+{{--                    <li><button>Copy</button></li>--}}
 
 
                 </ul>
