@@ -1,7 +1,7 @@
 <!-- widget single item start -->
 
 
-<li class="unorder-list">
+<li id="ToDoList{{$list->id}}" class="unorder-list">
 
     <div class="unorder-list-info">
         <div>
@@ -10,7 +10,7 @@
                 <p class="list-subtitle">{{ date('h:i:s a m/d/Y', strtotime($list->created_at))}}</p>
             </div>
             <div style="margin-left: 200px;">
-                <a href="{{route('close_todo_list', $list->id)}}"><b>x</b></a>
+                <a onclick="close_todo({{$list->id}})"><b>x</b></a>
             </div>
         </div>
 

@@ -18,10 +18,14 @@ class ToDoListController extends Controller
         return redirect()->to(route('timeline_user'));
     }
 
-    public function delete($id){
-        $todo=ToDoList::find($id);
-        $todo->status="closed";
-        $todo->save();
-        return redirect()->to(route('timeline_user'));
+    public function delete(Request $request){
+        if($request->ajax()){
+            $todo=ToDoList::find($request->id);
+            $todo->status="closed";
+            $todo->save();
+
+            return Response("success");
+        }
+        return "";
     }
 }
