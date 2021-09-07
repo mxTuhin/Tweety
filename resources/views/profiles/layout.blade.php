@@ -77,7 +77,7 @@
                     <div class="col-lg-2 col-md-3 d-none d-md-block">
                         <div class="profile-edit-panel">
                             @if(current_user()->is($user))
-                                <button class="edit-btn">edit profile</button>
+                                <button class="edit-btn" data-toggle="modal" data-target="#profileEditorModal">edit profile</button>
                             @else
 
                                 <x-follow-button :user="$user"></x-follow-button>
@@ -88,6 +88,231 @@
             </div>
         </div>
         @yield('profile_content')
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade bd-example-modal-lg" id="profileEditorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered " role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Edit Profile</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div style="height:600px; overflow-y: scroll " class="modal-body">
+                    <form>
+                        <div style="margin-bottom: 10px" class="row">
+
+                            <div class="col-6 col-sm-6">
+                                <label for="validationCustomUsername">Username (Not Changable)</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-user"></i></span>
+                                    </div>
+                                    <input class="form-control" type="text" placeholder="Username" value="{{$user->username}}" disabled>
+                                </div>
+                            </div>
+                            <div class="col-6 col-sm-6">
+                                <label for="validationCustomUsername">Email (Not Changable)</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-envelope"></i></span>
+                                    </div>
+                                    <input class="form-control" type="text" placeholder="Your Home" value="{{$user->email}}" disabled>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom: 10px" class="row">
+
+                            <div class="col-6 col-sm-6">
+                                <label for="validationCustomUsername">Your Name</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-user-tag"></i></span>
+                                    </div>
+                                    <input class="form-control" type="text" id="name" placeholder="Your Name" value="{{$user->name}}">
+                                </div>
+                            </div>
+                            <div class="col-6 col-sm-6">
+                                <label for="validationCustomUsername">Your Gender</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-venus-mars"></i></span>
+                                    </div>
+                                    <input class="form-control" type="text" id="gender" placeholder="Your Gender" value="{{$user->gender}}" >
+                                </div>
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 10px" class="row">
+
+                            <div class="col-6 col-sm-6">
+                                <label for="validationCustomUsername">Staying Country</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-globe-asia"></i></span>
+                                    </div>
+                                    <input class="form-control" type="text" id="country" placeholder="Your Country" value="{{$user->country}}">
+                                </div>
+                            </div>
+                            <div class="col-6 col-sm-6">
+                                <label for="validationCustomUsername">Your Cell Number</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-globe-asia"></i></span>
+                                    </div>
+                                    <input class="form-control" type="text" id="cellnum" placeholder="Your Cell Number" value="{{$user->cellnum}}" >
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom: 10px" class="row">
+
+
+                            <div class="col-6 col-sm-6">
+                                <label for="validationCustomUsername">Workplace</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-briefcase"></i></span>
+                                    </div>
+                                    <input class="form-control" type="text" id="workplace" placeholder="Your Work Place" value="{{$user->workplace}}">
+                                </div>
+                            </div>
+                            <div class="col-6 col-sm-6">
+                                <label for="validationCustomUsername">Home</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-home"></i></span>
+                                    </div>
+                                    <input class="form-control" type="text" id="home" placeholder="Your Home" value="{{$user->home}}">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div style="margin-bottom: 10px" class="row">
+
+                            <div class="col-6 col-sm-6">
+                                <label for="validationCustomUsername">Institution</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-university"></i></span>
+                                    </div>
+                                    <input class="form-control" type="text" id="institution" placeholder="Your Institution" value="{{$user->institution}}">
+                                </div>
+                            </div>
+                            <div class="col-6 col-sm-6">
+                                <label for="validationCustomUsername">Hobby</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-heartbeat"></i></span>
+                                    </div>
+                                    <input class="form-control" type="text" id="hobby" placeholder="Your Hobby" value="{{$user->hobby}}">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div style="margin-bottom: 10px" class="row">
+
+                            <div class="col-6 col-sm-6">
+                                <label for="validationCustomUsername">About</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupPrepend"><i class="far fa-address-card"></i></span>
+                                    </div>
+                                    <input class="form-control" type="text" id="about" placeholder="Your About Info" value="{{$user->about}}">
+                                </div>
+                            </div>
+                            <div class="col-6 col-sm-6">
+                                <label for="validationCustomUsername">Bio</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-info"></i></span>
+                                    </div>
+                                    <input class="form-control" type="text" id="bio" placeholder="Your Bio" value="{{$user->bio}}">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div style="margin-bottom: 10px" class="row">
+
+                            <div class="col-12 col-sm-12">
+                                <label for="validationCustomUsername">About</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-map-marked-alt"></i></span>
+                                    </div>
+                                    <input class="form-control" type="text" id="address" placeholder="Your Detail Address" value="{{$user->address}}">
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div style="margin-bottom: 10px" class="row">
+
+                            <div class="col-6 col-sm-6">
+                                <label for="validationCustomUsername">Facebook</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupPrepend"><i class="fab fa-facebook"></i></span>
+                                    </div>
+                                    <input class="form-control" type="text" id="facebook" placeholder="Your Facebook Username" value="{{$user->facebook}}">
+                                </div>
+                            </div>
+
+                            <div class="col-6 col-sm-6">
+                                <label for="validationCustomUsername">Twitter</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupPrepend"><i class="fab fa-twitter"></i></span>
+                                    </div>
+                                    <input class="form-control" type="text" id="twitter" placeholder="Your Twitter Username" value="{{$user->twitter}}">
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div style="margin-bottom: 10px" class="row">
+
+                            <div class="col-6 col-sm-6">
+                                <label for="validationCustomUsername">Flickr</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupPrepend"><i class="fab fa-flickr"></i></span>
+                                    </div>
+                                    <input class="form-control" type="text" id="flickr" placeholder="Your Flickr Username" value="{{$user->flickr}}">
+                                </div>
+                            </div>
+
+                            <div class="col-6 col-sm-6">
+                                <label for="validationCustomUsername">Github</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupPrepend"><i class="fab fa-github"></i></span>
+                                    </div>
+                                    <input class="form-control" type="text" id="github" placeholder="Your Github Username" value="{{$user->github}}">
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <div style="font-size: 12px;">
+                        <b > Scroll to see more fields</b>
+                    </div>
+
+                    <button style="padding: 10px; border-radius: 50px" type="button" class="btn-info">Save changes</button>
+                </div>
+            </div>
+        </div>
     </div>
 
 
