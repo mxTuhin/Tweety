@@ -15,7 +15,7 @@ class OpinionLikeController extends Controller
     public function add_like(){
         $like=new OpinionLike();
         $like->user_id=current_user()->id;
-        $like->tweet_id=\request()->id;
+        $like->opinion_id=\request()->id;
         $like->save();
         $opn = Opinion::find(\request()->id);
 

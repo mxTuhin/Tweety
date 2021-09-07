@@ -814,6 +814,9 @@ else{
 
 <script>
     function add_opinion_like(id){
+        document.getElementById("add_opinion_like"+id).style.display="none";
+        document.getElementById("remove_opinion_like"+id).style.display="block";
+
         var like_counter = document.getElementById("opinion_like_count_"+id).innerText;
         document.getElementById("opinion_like_count_"+id).innerText = parseInt(like_counter)+1;
         $.ajax({
@@ -830,8 +833,10 @@ else{
     }
 
     function remove_opinion_like(id){
+        document.getElementById("add_opinion_like"+id).style.display="block";
+        document.getElementById("remove_opinion_like"+id).style.display="none";
         var like_counter = document.getElementById("opinion_like_count_"+id).innerText;
-        document.getElementById("opinion_like_count_"+id).innerText = parseInt(like_counter)+1;
+        document.getElementById("opinion_like_count_"+id).innerText = parseInt(like_counter)-1;
         $.ajax({
             type : 'post',
             url : '{{URL::to(route('remove_opinion_like'))}}',
