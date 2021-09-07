@@ -644,25 +644,25 @@ else{
     }
 </script>
 <script>
-    {{--window.setInterval(function() {--}}
-    {{--    $.ajax({--}}
-    {{--        type : 'post',--}}
-    {{--        url : '{{URL::to(route('fetch_msg'))}}',--}}
-    {{--        data:{--}}
-    {{--            id: global_message_user--}}
-    {{--        },--}}
-    {{--        success:function(data){--}}
+    window.setInterval(function() {
+        $.ajax({
+            type : 'post',
+            url : '{{URL::to(route('fetch_msg'))}}',
+            data:{
+                id: global_message_user
+            },
+            success:function(data){
 
-    {{--            document.getElementById('chatbox_replies').innerHTML=data;--}}
-    {{--            if(data!=""){--}}
-    {{--                var elem = document.getElementById('chatbox_replies');--}}
-    {{--                elem.scrollTop = elem.scrollHeight;--}}
-    {{--            }--}}
+                document.getElementById('chatbox_replies').innerHTML=data;
+                if(data!=""){
+                    var elem = document.getElementById('chatbox_replies');
+                    elem.scrollTop = elem.scrollHeight;
+                }
 
 
-    {{--        }--}}
-    {{--    });--}}
-    {{--}, 1000);--}}
+            }
+        });
+    }, 1000);
 </script>
 
 <script>
