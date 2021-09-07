@@ -88,16 +88,28 @@ class ProfileController extends Controller
         ]);
     }
 
-    public function edit(User $user){
-        if(current_user()->is($user)){
-            return view('profiles.edit', [
-                "user"=>$user
-
-            ]);
+    public function edit(Request $request){
+        $output=array();
+        if($request->ajax()){
+            $user=User::find(Auth::id());
+            $user->name=$request->name;
+            $user->gender=$request->gender;
+            $user->country=$request->country;
+            $user->bio=$request->bio;
+            $user->workplace=$request->workplace;
+            $user->home=$request->home;
+            $user->hobby=$request->hobby;
+            $user->institution=$request->institution;
+            $user->facebook=$request->facebook;
+            $user->twitter=$request->twitter;
+            $user->flickr=$request->flickr;
+            $user->github=$request->github;
+            $user->about=$request->about;
+            $user->cellnum=$request->cellnum;
+            $user->address=$request->address;
+            $user->save();
         }
-        else{
-            return view('profiles.show', compact('user'));
-        }
+        return Response("success");
     }
 
     public function about(User $user){

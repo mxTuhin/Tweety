@@ -46,6 +46,7 @@ Route::get('/profile/{user:username}/about', 'ProfileController@about')->name('a
 Route::get('/profile/{user:username}/friends', 'ProfileController@friends')->name('friends');
 Route::get('/profile/{user:username}/photos', 'ProfileController@photos')->name('photos');
 
+Route::post('/profile/update_profile/', [\App\Http\Controllers\ProfileController::class, 'edit'])->name("update_profile");
 Route::post('/add_opinion', [\App\Http\Controllers\OpinionController::class, 'store'])->name('add_opinion');
 Route::post('/opinion_like', [\App\Http\Controllers\OpinionLikeController::class, 'add_like'])->name('opinion_like');
 Route::post('/opinion_like_remove', [\App\Http\Controllers\OpinionLikeController::class, 'remove_like'])->name('remove_opinion_like');

@@ -309,7 +309,7 @@
                         <b > Scroll to see more fields</b>
                     </div>
 
-                    <button style="padding: 10px; border-radius: 50px" type="button" class="btn-info">Save changes</button>
+                    <button onclick="update_profile()" style="padding: 10px; border-radius: 50px" type="button" class="btn-info">Save changes</button>
                 </div>
             </div>
         </div>
@@ -319,5 +319,6 @@
 @endsection
 
 @section('dashboardJS')
+
 
 @endsection

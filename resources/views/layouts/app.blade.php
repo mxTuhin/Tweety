@@ -916,6 +916,62 @@ else{
     }
 </script>
 
+<script>
+    function update_profile(){
+        var Name= document.getElementById("name").value;
+        var Gender= document.getElementById("gender").value;
+        var Country = document.getElementById("country").value;
+        var Cellnum= document.getElementById("cellnum").value;
+        var Workplace = document.getElementById("workplace").value;
+        var Home = document.getElementById("home").value;
+        var Institution = document.getElementById("institution").value;
+        var Hobby = document.getElementById("hobby").value;
+        var About = document.getElementById("about").value;
+        var Bio = document.getElementById("bio").value;
+        var Facebook = document.getElementById("facebook").value;
+        var Twitter = document.getElementById("twitter").value;
+        var Flickr = document.getElementById("flickr").value;
+        var Github = document.getElementById("github").value;
+        var Address = document.getElementById("address").value;
+
+        $.ajax({
+            type : 'post',
+            url : '{{URL::to(route('update_profile'))}}',
+            data:{
+                name: Name,
+                gender: Gender,
+                country: Country,
+                cellnum: Cellnum,
+                workplace: Workplace,
+                home: Home,
+                institution: Institution,
+                hobby: Hobby,
+                about: About,
+                bio: Bio,
+                facebook: Facebook,
+                twitter: Twitter,
+                flickr: Flickr,
+                github: Github,
+                address: Address
+            },
+            success:function(data){
+                console.log(data)
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Profile Updated Successfully..',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+                setTimeout(function(){
+                    window.location.href = '{{route('profile', $user->username)}}';
+                }, 2000);
+
+            }
+        });
+    }
+</script>
+
 
 @yield('dashboardJS')
 
