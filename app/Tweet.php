@@ -15,4 +15,7 @@ class Tweet extends Model
     public function opinions(){
         return $this->hasMany(Opinion::class);
     }
+    public function likes(){
+        return $this->hasMany(Like::class);
+    }
 }

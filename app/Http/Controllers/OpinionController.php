@@ -88,17 +88,5 @@ class OpinionController extends Controller
         return $output;
     }
 
-    public function opinion_like(){
-        $opn = Opinion::find(\request()->id);
-        $opn->like+=1;
-        $opn->save();
 
-        $notify=new Notifications();
-        $notify->user_id=$opn->user->id;
-        $notify->type='notification';
-        $notify->data='has Liked Your Comment';
-        $notify->notifier_name=current_user()->name;
-        $notify->notifier_image=current_user()->profile_img;
-        $notify->save();
-    }
 }

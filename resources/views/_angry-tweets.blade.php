@@ -75,11 +75,33 @@
             </figure>
         </div>
         <div class="post-meta">
-            <button onclick="add_like('{{$tweet->id}}')" class="post-meta-like">
-                <i class="fas fa-heartbeat"></i>
-                <span id="like_count{{$tweet->id}}">{{$tweet->like_count}}</span>
 
-            </button>
+            @if($tweet->likes->where('tweet_id', '=', $tweet->id)->where('user_id', '=', current_user()->id)->count()<1)
+                <button id="add_like_button_ch{{$tweet->id}}" onclick="add_like('{{$tweet->id}}')" class="post-meta-like">
+                    <i class="fas fa-heartbeat"></i>
+                    <span id="add_like_count{{$tweet->id}}">{{$tweet->likes->count()}}</span>
+
+                </button>
+
+                <button style="display: none" id="remove_like_button_ch{{$tweet->id}}" onclick="remove_like('{{$tweet->id}}')" class="post-meta-like">
+                    <i style="color: red" class="fas fa-heartbeat"></i>
+                    <span id="remove_like_count{{$tweet->id}}">{{$tweet->likes->count()}}</span>
+
+                </button>
+            @else
+                <button style="display: none" id="add_like_button_ch{{$tweet->id}}" onclick="add_like('{{$tweet->id}}')" class="post-meta-like">
+                    <i class="fas fa-heartbeat"></i>
+                    <span id="add_like_count{{$tweet->id}}">{{$tweet->likes->count()}}</span>
+
+                </button>
+
+                <button id="remove_like_button_ch{{$tweet->id}}" onclick="remove_like('{{$tweet->id}}')" class="post-meta-like">
+                    <i style="color: red" class="fas fa-heartbeat"></i>
+                    <span id="remove_like_count{{$tweet->id}}">{{$tweet->likes->count()}}</span>
+
+                </button>
+            @endif
+
             <ul class="comment-share-meta">
                 <li>
                     <button onclick="show_comment('{{$tweet->id}}')" class="post-comment">
@@ -123,11 +145,16 @@
                                         <div class="col-3 col-sm-3">
                                             <div class="row">
                                                 <div class="col-6 col-sm-6">
-                                                    <button onclick="opinion_like('{{$opinion->id}}')" style="font-size: 12px" type="button"><b>Like</b></button>
-
+                                                    @if($opinion->likes->where('opinion_id', '=', $opinion->id)->where('user_id', '=', current_user()->id)->count()<1)
+                                                        <button id="add_opinion_like{{$opinion->id}}" onclick="add_opinion_like('{{$opinion->id}}')" style="font-size: 12px" type="button"><b>Like</b></button>
+                                                        <button id="remove_opinion_like{{$opinion->id}}" onclick="remove_opinion_like('{{$opinion->id}}')" style="font-size: 12px; display: none; color: red" type="button"><b>Like</b></button>
+                                                    @else
+                                                        <button id="add_opinion_like{{$opinion->id}}" onclick="add_opinion_like('{{$opinion->id}}')" style="font-size: 12px; display: none" type="button"><b>Like</b></button>
+                                                        <button id="remove_opinion_like{{$opinion->id}}" onclick="remove_opinion_like('{{$opinion->id}}')" style="font-size: 12px; color: red" type="button"><b>Like</b></button>
+                                                    @endif
                                                 </div>
                                                 <div style="margin-left: -30px; margin-top: 2px" class="col-6 col-sm-6">
-                                                    <p id="opinion_like_count_{{$opinion->id}}" style="font-size: 12px" class="list-subtitle"><b>{{$opinion->like}}</b></p>
+                                                    <p id="opinion_like_count_{{$opinion->id}}" style="font-size: 12px" class="list-subtitle"><b>{{$opinion->likes->count()}}</b></p>
                                                 </div>
                                             </div>
 

@@ -16,4 +16,7 @@ class Opinion extends Model
     protected $fillable = [
         'tweet_id', 'user_id', 'opinion', 'like'
     ];
+    public function likes(){
+        return $this->hasMany(OpinionLike::class);
+    }
 }

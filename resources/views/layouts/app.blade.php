@@ -567,7 +567,9 @@ else{
     var global_message_user;
     var global_chat_user_id;
     function add_like(_id){
-        var like=document.getElementById('like_count'+_id).innerText;
+        document.getElementById("add_like_button_ch"+_id).style.display="none";
+        document.getElementById("remove_like_button_ch"+_id).style.display="block";
+        var like=document.getElementById('add_like_count'+_id).innerText;
         var like_counter=parseInt(like);
 
         $.ajax({
@@ -578,7 +580,27 @@ else{
             },
             success:function(data){
                 console.log(data)
-                document.getElementById('like_count'+_id).innerText = like_counter+1;
+                document.getElementById('remove_like_count'+_id).innerText = like_counter+1;
+            }
+        });
+
+    }
+
+    function remove_like(_id){
+        document.getElementById("remove_like_button_ch"+_id).style.display="none";
+        document.getElementById("add_like_button_ch"+_id).style.display="block";
+        var like=document.getElementById('remove_like_count'+_id).innerText;
+        var like_counter=parseInt(like);
+
+        $.ajax({
+            type : 'post',
+            url : '{{URL::to(route('remove_like'))}}',
+            data:{
+                id: _id,
+            },
+            success:function(data){
+                console.log(data)
+                document.getElementById('add_like_count'+_id).innerText = like_counter-1;
             }
         });
 
@@ -791,12 +813,28 @@ else{
 </script>
 
 <script>
-    function opinion_like(id){
+    function add_opinion_like(id){
         var like_counter = document.getElementById("opinion_like_count_"+id).innerText;
         document.getElementById("opinion_like_count_"+id).innerText = parseInt(like_counter)+1;
         $.ajax({
             type : 'post',
             url : '{{URL::to(route('opinion_like'))}}',
+            data:{
+                id: id
+            },
+            success:function(data){
+                console.log(data)
+
+            }
+        });
+    }
+
+    function remove_opinion_like(id){
+        var like_counter = document.getElementById("opinion_like_count_"+id).innerText;
+        document.getElementById("opinion_like_count_"+id).innerText = parseInt(like_counter)+1;
+        $.ajax({
+            type : 'post',
+            url : '{{URL::to(route('remove_opinion_like'))}}',
             data:{
                 id: id
             },

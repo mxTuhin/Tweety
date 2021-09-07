@@ -52,13 +52,6 @@ class TweetController extends Controller
             $tweet->like_count+=1;
             $tweet->save();
 
-//            DB::table('notifications')->insert([
-//                'user_id'=>$tweet->user->id,
-//                'type'=>'notification',
-//                'data'=>' has Liked your Post',
-//                'notifier_name'=>current_user()->name,
-//                'notifier_image'=>current_user()->profile_img
-//            ]);
             $notify=new Notifications();
             $notify->user_id=$tweet->user->id;
             $notify->type='notification';

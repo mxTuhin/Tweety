@@ -25,7 +25,9 @@ Route::middleware('auth')->group(function (){
     Route::get('/tweets', 'TweetController@index')->name('home');
 
     //Ajax Calls
-    Route::post('/add_like', [\App\Http\Controllers\TweetController::class, 'add_like'])->name('add_like');
+    Route::post('/add_like', [\App\Http\Controllers\LikeController::class, 'add_like'])->name('add_like');
+    Route::post('/remove_like', [\App\Http\Controllers\LikeController::class, 'remove_like'])->name('remove_like');
+
 
 
     Route::get('/profile/{user:username}/edit', 'ProfileController@edit')->name('editProfile');
@@ -45,7 +47,9 @@ Route::get('/profile/{user:username}/friends', 'ProfileController@friends')->nam
 Route::get('/profile/{user:username}/photos', 'ProfileController@photos')->name('photos');
 
 Route::post('/add_opinion', [\App\Http\Controllers\OpinionController::class, 'store'])->name('add_opinion');
-Route::post('/opinion_like', [\App\Http\Controllers\OpinionController::class, 'opinion_like'])->name('opinion_like');
+Route::post('/opinion_like', [\App\Http\Controllers\OpinionLikeController::class, 'add_like'])->name('opinion_like');
+Route::post('/opinion_like_remove', [\App\Http\Controllers\OpinionLikeController::class, 'remove_like'])->name('remove_opinion_like');
+
 
 
 
